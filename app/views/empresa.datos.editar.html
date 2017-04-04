@@ -26,34 +26,21 @@
 				<!-- <h3 class="form-section">Información</h3> -->
 				<div class="row">
 						<div class="col-md-6">
-							<ec-input label="Nombre:"
+							<ec-input 
+								label="Nombre:"
 						      	ng-model="datos.nombre"
 						      	name="nombre"
 						      	ng-required="true"
 						      	ng-maxlength="100">
 						     </ec-input>
-						     
 						</div>
 						<!--/span-->
 						<div class="col-md-6">
-							<!-- <div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.apellidos || formDatos.apellidos.$invalid}">
-								<label class="control-label col-md-3" for="apellidos">Apellidos:</label>
-								<div class="col-md-9">
-									<div class="input-icon right">
-										<input type="text" class="form-control" id="apellidos" name="apellidos" ng-model="datos.apellidos" ng-maxlegth="100" required/>
-										<i class="fa fa-warning" ng-if="errorMessages.apellidos || formDatos.apellidos.$invalid"></i>
-											<div class="form-control-focus">
-											</div>
-											<span class="help-block">{{errorMessages.apellidos[0]}}</span>
-									</div>
-								</div>
-							</div> -->
-							<ec-input label="Apellidos:"
+							<ec-input 
+								label="Apellidos:"
 						      	ng-model="datos.apellidos"
 						      	name="apellidos"
-						      	server-error-messages="errorMessages.apellidos[0]"
-						      	error-condition="{{formDatos.apellidos.$invalid || errorMessages.apellidos}}"
-						      	required-condition="formDatos.apellidos.$error.required"
+						      	ng-required="true"
 						      	ng-maxlength="100">
 						     </ec-input>
 						</div>
@@ -62,50 +49,20 @@
 					<!--/row-->
 					<div class="row">
 						<div class="col-md-6">
-							<!-- <div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.empresa || formDatos.empresa.$invalid}">
-								<label class="control-label col-md-3" for="empresa">Empresa:</label>
-								<div class="col-md-9">
-									<div class="input-icon right">
-										<input type="text" class="form-control" id="empresa" name="empresa"  ng-model="datos.empresa" ng-maxlegth="100"/>
-										<i class="fa fa-warning" ng-if="errorMessages.empresa || formDatos.empresa.$invalid"></i>
-												<div class="form-control-focus">
-												</div>
-												<span class="help-block">{{errorMessages.empresa[0]}}</span>
-									</div>
-								</div>
-							</div> -->
-
-							<ec-input label="Empresa:"
+							<ec-input 
+								label="Empresa:"
 						      	ng-model="datos.empresa"
 						      	name="empresa"
-						      	server-error-messages="errorMessages.empresa[0]"
-						      	error-condition="{{formDatos.empresa.$invalid || errorMessages.empresa}}"
 						      	ng-maxlength="100">
 						     </ec-input>
 						</div>
 						<!--/span-->
 						<div class="col-md-6">
-							<!-- <div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.cif || formDatos.cif.$invalid}">
-								<label class="control-label col-md-3" for="cif">CIF/NIF:</label>
-								<div class="col-md-9">
-									<div class="input-icon right">
-										<input type="text" class="form-control" id="cif" ng-model="datos.cif" ng-maxlength="9" name="cif" required/>
-										<i class="fa fa-warning" ng-if="errorMessages.cif || formDatos.cif.$invalid"></i>
-											<div class="form-control-focus">
-											</div>
-											<span class="help-block">{{errorMessages.cif[0]}}</span>
-											<span ng-if="formDatos.cif.$error.required" class="help-block">El campo es obligatorio</span>
-											<span ng-if="formDatos.cif.$error.maxlength" class="help-block">El campo es demasiado largo</span>
-									</div>
-								</div>
-							</div> -->
-
-							<ec-input label="CIF/NIF:"
+							<ec-input 
+								label="CIF/NIF:"
 						      	ng-model="datos.cif"
 						      	name="cif"
-						      	server-error-messages="errorMessages.cif[0]"
-						      	error-condition="{{formDatos.cif.$invalid || errorMessages.cif}}"
-						      	required-condition="formDatos.cif.$error.required"
+						      	ng-required="true"
 						      	ng-minlength="9"
 						      	ng-maxlength="9">
 						     </ec-input>
@@ -116,53 +73,22 @@
 					<!--/row-->
 					<div class="row">
 						<div class="col-md-6">
-							<!-- <div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.email || formDatos.email.$invalid}">
-
-								<label class="control-label col-md-3" for="email">Email:</label>
-								<div class="col-md-9">
-										<div class="input-group input-icon right">
-												<span class="input-group-addon">
-													<i class="fa fa-envelope"></i>
-												</span>
-												<input type="text" class="form-control" id="email" name="email" placeholder="Introduzca email" ng-model="datos.email" ng-maxlength="100" required/>
-											
-												<i class="fa fa-warning" ng-if="errorMessages.email || formDatos.email.$invalid"></i>
-												<div class="form-control-focus">
-												</div>
-												<span class="help-block">{{errorMessages.email[0]}}</span>
-										</div>
-								</div>
-							</div> -->
-							<ec-input label="Email:"
+							<ec-input 
+								label="Email:"
 						      	ng-model="datos.email"
 						      	name="email"
-						      	server-error-messages="errorMessages.email[0]"
-						      	error-condition="{{formDatos.email.$invalid || errorMessages.email}}"
-						      	required-condition="formDatos.email.$error.required"
+						      	ng-required="true"
 						      	ng-maxlength="100"
 						      	type="email">
 						     </ec-input>
 						</div>
 						<!--/span-->
 						<div class="col-md-6">
-							<!-- <div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.telefono || formDatos.telefono.$invalid}">
-								<label class="control-label col-md-3" for="telefono">Teléfono:</label>
-								<div class="col-md-9 ">
-									<div class="input-icon right">
-										<input type="text" class="form-control" id="telefono" name="telefono" ng-model="datos.telefono" ng-maxlength="13"/>
-										<i class="fa fa-warning tooltips" ng-if="errorMessages.telefono || formDatos.telefono.$invalid"></i>
-											<div class="form-control-focus">
-											</div>
-											<span class="help-block">{{errorMessages.telefono[0]}}</span>
-									</div>
-								</div>
-							</div> -->
-							<ec-input label="Teléfono:"
+							<ec-input 
+								label="Teléfono:"
 						      	ng-model="datos.telefono"
 						      	name="telefono"
-						      	server-error-messages="errorMessages.telefono[0]"
-						      	error-condition="{{formDatos.telefono.$invalid || errorMessages.telefono}}"
-						      	required-condition="formDatos.telefono.$error.required"
+						      	ng-required="true"
 						      	ng-maxlength="13">
 						     </ec-input>
 						</div>
@@ -171,24 +97,9 @@
 
 					<div class="row">
 						<div class="col-md-6">
-							<!-- <div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.vat || formDatos.vat.$invalid}">
-								<label class="control-label col-md-3" for="vat">VAT Number:</label>
-								<div class="col-md-9" >
-									<div class="input-icon right">
-										<input type="text" class="form-control" id="vat" name="vat" ng-model="datos.vat" ng-maxlength="10"/>
-										<i class="fa fa-warning tooltips" ng-if="errorMessages.vat || formDatos.vat.$invalid"></i>
-												<div class="form-control-focus">
-												</div>
-												<span class="help-block">{{errorMessages.vat[0]}}</span>
-									</div>
-								</div>
-							</div> -->
-
 							<ec-input label="VAT Number:"
 						      	ng-model="datos.vat"
 						      	name="vat"
-						      	server-error-messages="errorMessages.vat[0]"
-						      	error-condition="{{formDatos.vat.$invalid || errorMessages.vat}}"
 						      	ng-maxlength="10">
 						     </ec-input>
 						</div>
@@ -199,23 +110,9 @@
 					<h3 class="form-section">Localización</h3>
 					<div class="row">
 						<div class="col-md-6">
-							<!-- <div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.direccion || formDatos.direccion.$invalid}">
-								<label class="control-label col-md-3" for="direccion">Dirección:</label>
-								<div class="col-md-9">
-									<div class="input-icon right">
-										<input type="text" class="form-control" id="direccion" name="direccion" ng-model="datos.direccion" ng-maxlength="150"/>
-										<i class="fa fa-warning tooltips" ng-if="errorMessages.direccion || formDatos.direccion.$invalid"></i>
-											<div class="form-control-focus">
-											</div>
-											<span class="help-block">{{errorMessages.direccion[0]}}</span>
-									</div>
-								</div>
-							</div> -->
 							<ec-input label="Dirección:"
 						      	ng-model="datos.direccion"
 						      	name="direccion"
-						      	server-error-messages="errorMessages.direccion[0]"
-						      	error-condition="{{formDatos.direccion.$invalid || errorMessages.direccion}}"
 						      	ng-maxlength="150">
 						     </ec-input>
 						</div>
@@ -237,24 +134,9 @@
 						</div>
 						<!--/span-->
 						<div class="col-md-6">
-							<!-- <div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.provincia || formDatos.provincia.$invalid}">
-								<label class="control-label col-md-3" for="provincia">Provincia/Estado:</label>
-								<div class="col-md-9">
-									<div class="input-icon right">
-										<input type="text" class="form-control" id="provincia" name="provincia"  ng-model="datos.provincia" ng-maxlength="100"/>
-										<i class="fa fa-warning tooltips" ng-if="errorMessages.ciudad || formDatos.provincia.$invalid"></i>
-											<div class="form-control-focus">
-											</div>
-											<span class="help-block">{{errorMessages.provincia[0]}}</span>
-									</div>
-								</div>
-							</div> -->
-
 							<ec-input label="Provincia/Estado:"
 						      	ng-model="datos.provincia"
 						      	name="provincia"
-						      	server-error-messages="errorMessages.provincia[0]"
-						      	error-condition="{{formDatos.provincia.$invalid || errorMessages.provincia}}"
 						      	ng-maxlength="100">
 						     </ec-input>							
 
@@ -264,48 +146,18 @@
 					<!--/row-->
 					<div class="row">
 						<div class="col-md-6">
-							<!-- <div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.cp || formDatos.cp.$invalid}">
-								<label class="control-label col-md-3" for="cp">Código Postal:</label>
-								<div class="col-md-9">
-									<div class="input-icon right">
-										<input type="text" class="form-control" id="cp" name="cp"  ng-model="datos.cp" ng-maxlength="10"/>
-										<i class="fa fa-warning tooltips" ng-if="errorMessages.cp || formDatos.cp.$invalid"></i>
-											<div class="form-control-focus">
-											</div>
-											<span class="help-block">{{errorMessages.cp[0]}}</span>
-									</div>
-								</div>
-							</div> -->
 							<ec-input label="Código Postal:"
 						      	ng-model="datos.cp"
 						      	name="cp"
-						      	server-error-messages="errorMessages.cp[0]"
-						      	error-condition="{{formDatos.cp.$invalid || errorMessages.cp}}"
 						      	ng-maxlength="10">
 						     </ec-input>
 						</div>
 						<!--/span-->
 						<div class="col-md-6">
-							<!-- <div class="form-group form-md-line-input"  ng-class="{'has-error' : errorMessages.pais || formDatos.pais.$invalid}">
-								<label class="control-label col-md-3" for="pais">Pais:</label>
-								<div class="col-md-9">
-									<div class="input-icon right">
-										<input type="text" class="form-control" id="pais" name="pais" ng-model="datos.pais" maxlength="3" required/>
-											<i class="fa fa-warning tooltips" ng-if="errorMessages.pais || formDatos.pais.$invalid"></i>
-											<div class="form-control-focus">
-											</div>
-											<span class="help-block">{{errorMessages.pais[0]}}</span>
-									</div>
-								</div>
-
-							</div> -->
-
 							<ec-input label="País:"
 						      	ng-model="datos.pais"
 						      	name="pais"
-						      	server-error-messages="errorMessages.pais[0]"
-						      	error-condition="{{formDatos.pais.$invalid || errorMessages.pais}}"
-						      	required-condition="formDatos.pais.$error.required"
+						      	ng-required="true"
 						      	ng-maxlength="3">
 						     </ec-input>
 
@@ -315,45 +167,17 @@
 					<h3 class="form-section">Contacto</h3>
 					<div class="row">
 						<div class="col-md-6">
-							<!-- <div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages['contactos.nombre'] || formDatos.nombreContacto.$invalid}">
-								<label class="control-label col-md-3" for ="nombreContacto">Nombre:</label>
-								<div class="col-md-9">
-									<div class="input-icon right">
-										<input type="text" class="form-control" id="nombreContacto" name="nombreContacto"  ng-model="datos.contactos.nombre" ng-maxlength="100"/>
-												<i class="fa fa-warning tooltips" ng-if="errorMessages['contactos.nombre'] || formDatos.nombreContacto.$invalid"></i>
-												<div class="form-control-focus">
-												</div>
-												<span class="help-block">{{errorMessages['contactos.nombre'][0]}}</span>
-									</div>
-								</div>
-							</div> -->
 							<ec-input label="Nombre:"
 						      	ng-model="datos.contactos.nombre"
 						      	name="nombreContacto"
-						      	server-error-messages="errorMessages['contactos.nombre'][0]"
-						      	error-condition="{{formDatos.nombreContacto.$invalid || errorMessages['contactos.nombre']}}"
 						      	ng-maxlength="100">
 						     </ec-input>
 						</div>
 						<!--/span-->
 						<div class="col-md-6">
-							<!-- <div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages['contactos.apellidos'] || formDatos.apellidosContacto.$invalid}">
-								<label class="control-label col-md-3" for="apellidosContacto">Apellidos:</label>
-								<div class="col-md-9">
-									<div class="input-icon right">
-										<input type="text" class="form-control" id="apellidosContacto" name="apellidosContacto" ng-model="datos.contactos.apellidos" ng-maxlength="100"/>
-											<i class="fa fa-warning tooltips" ng-if="errorMessages['contactos.apellidos'] || formDatos.apellidosContacto.$invalid"></i>
-											<div class="form-control-focus">
-											</div>
-											<span class="help-block">{{errorMessages['contactos.apellidos'][0]}}</span>
-									</div>		
-								</div>
-							</div> -->
 							<ec-input label="Apellidos:"
 						      	ng-model="datos.contactos.apellidos"
 						      	name="apellidosContacto"
-						      	server-error-messages="errorMessages['contactos.apellidos'][0]"
-						      	error-condition="{{formDatos.apellidosContacto.$invalid || errorMessages['contactos.apellidos']}}"
 						      	ng-maxlength="100">
 						     </ec-input>
 						</div>
@@ -364,47 +188,19 @@
 					<!--/row-->
 					<div class="row">
 						<div class="col-md-6">
-							<!-- <div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages['contactos.email'] || formDatos.emailContacto.$invalid}">
-								<label class="control-label col-md-3" for="emailContacto">Email:</label>
-								<div class="col-md-9">
-									<div class="input-icon right">
-											<input type="text" class="form-control" id="emailContacto" name="emailContacto" placeholder="Introduzca email" ng-model="datos.contactos.email" ng-maxlength="100"/>
-											<i class="fa fa-warning tooltips" ng-if="errorMessages['contactos.email'] || formDatos.emailContacto.$invalid"></i>
-											<div class="form-control-focus">
-											</div>
-											<span class="help-block">{{errorMessages['contactos.email'][0]}}</span>
-									</div>
-								</div>
-							</div> -->
 							<ec-input label="Email:"
 						      	ng-model="datos.contactos.email"
 						      	name="emailContacto"
-						      	server-error-messages="errorMessages['contactos.email'][0]"
-						      	error-condition="{{formDatos.emailContacto.$invalid || errorMessages['contactos.email']}}"
-						      	required-condition="formDatos.emailContacto.$error.required"
+						      	ng-required="true"
 						      	ng-maxlength="100"
 						      	type="email">
 						     </ec-input>
 						</div>
 						<!--/span-->e
 						<div class="col-md-6">
-							<!-- <div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages['contactos.telefono'] || formDatos.telefonoContacto.$invalid}">
-								<label class="control-label col-md-3" for="telefonoContacto">Teléfono:</label>
-								<div class="col-md-9">
-									<div class="input-icon right">
-										<input type="text" class="form-control" id="telefonoContacto" name="telefonoContacto" ng-model="datos.contactos.telefono" ng-maxlength="13"/>
-										<i class="fa fa-warning tooltips" ng-if="errorMessages['contactos.telefono'] || formDatos.telefonoContacto.$invalid"></i>
-											<div class="form-control-focus">
-											</div>
-											<span class="help-block">{{errorMessages['contactos.telefono'][0]}}</span>
-									</div>
-								</div>
-							</div> -->
 							<ec-input label="Teléfono:"
 						      	ng-model="datos.contactos.telefono"
 						      	name="telefonoContacto"
-						      	server-error-messages="errorMessages['contactos.telefono'][0]"
-						      	error-condition="{{formDatos.telefonoContacto.$invalid || errorMessages['contactos.telefono']}}"
 						      	ng-maxlength="100">
 						     </ec-input>
 						</div>
