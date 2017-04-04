@@ -1,0 +1,247 @@
+<div class="portlet light" ng-controller="EmpresaDatosCtrl">
+	<div class="portlet-title">
+		<div class="caption font-green-haze">
+			<i class="icon-settings font-green-haze"></i>
+			<span class="caption-subject bold uppercase"> Detalle de cuenta</span>
+		</div>
+		<div class="actions">
+			<a class="btn btn-circle btn-icon-only blue" href="javascript:;">
+				<i class="icon-printer"></i>
+			</a>
+			<a class="btn btn-circle btn-icon-only green" href="javascript:;">
+				<i class="icon-wrench"></i>
+			</a>
+			<a class="btn btn-circle btn-icon-only red" href="javascript:;">
+				<i class="icon-trash"></i>
+			</a>
+			<a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title="">
+			</a>
+		</div>
+	</div>
+	<div class="portlet-body form">
+		<form class="form-horizontal" role="form">
+			<div class="form-body">
+				<!-- <h3 class="form-section">Información</h3> -->
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="control-label col-md-3">Nombre:</label>
+							<div class="col-md-9">
+								<p class="form-control-static">
+									{{detalle.nombre}}</p>
+								</div>
+							</div>
+						</div>
+						<!--/span-->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label col-md-3">Apellidos:</label>
+								<div class="col-md-9">
+									<p class="form-control-static">
+										{{detalle.apellidos}}
+									</p>
+								</div>
+							</div>
+						</div>
+						<!--/span-->
+					</div>
+					<!--/row-->
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label col-md-3">Empresa:</label>
+								<div class="col-md-9">
+									<p class="form-control-static">
+										{{detalle.empresa}}
+									</p>
+								</div>
+							</div>
+						</div>
+						<!--/span-->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label col-md-3">CIF/NIF:</label>
+								<div class="col-md-9">
+									<p class="form-control-static">
+										{{detalle.cif}}
+									</p>
+								</div>
+							</div>
+						</div>
+						<!--/span-->
+					</div>
+					<!--/row-->
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label col-md-3">Email:</label>
+								<div class="col-md-9">
+									<p class="form-control-static">
+										{{detalle.email}}
+									</p>
+								</div>
+							</div>
+						</div>
+						<!--/span-->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label col-md-3">Teléfono:</label>
+								<div class="col-md-9">
+									<p class="form-control-static">
+										{{detalle.telefono}}
+									</p>
+								</div>
+							</div>
+						</div>
+						<!--/span-->
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label col-md-3">VAT Number:</label>
+								<div class="col-md-9">
+									<p class="form-control-static">
+										{{detalle.vat}}
+									</p>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					<!--/row-->
+					<h3 class="form-section">Localización</h3>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label col-md-3">Dirección:</label>
+								<div class="col-md-9">
+									<p class="form-control-static">
+										{{detalle.direccion}}
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label col-md-3">Ciudad:</label>
+								<div class="col-md-9">
+									<p class="form-control-static">
+										{{detalle.localidad}}
+									</p>
+								</div>
+							</div>
+						</div>
+						<!--/span-->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label col-md-3">Provincia/Estado:</label>
+								<div class="col-md-9">
+									<p class="form-control-static">
+										{{detalle.provincia}}
+									</p>
+								</div>
+							</div>
+						</div>
+						<!--/span-->
+					</div>
+					<!--/row-->
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label col-md-3">Código Postal:</label>
+								<div class="col-md-9">
+									<p class="form-control-static">
+										{{detalle.cp}}
+									</p>
+								</div>
+							</div>
+						</div>
+						<!--/span-->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label col-md-3">Pais:</label>
+								<div class="col-md-9">
+									<p class="form-control-static">
+										{{detalle.pais}}
+									</p>
+								</div>
+							</div>
+						</div>
+						<!--/span-->
+					</div>
+					<h3 class="form-section">Contacto</h3>
+					<div class="row">
+						<div class="col-md-6">
+						<div class="form-group">
+							<label class="control-label col-md-3">Nombre:</label>
+							<div class="col-md-9">
+								<p class="form-control-static">
+									{{detalle.contactos.nombre}}
+								</div>
+							</div>
+						</div>
+						<!--/span-->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label col-md-3">Apellidos:</label>
+								<div class="col-md-9">
+									<p class="form-control-static">
+										{{detalle.contactos.apellidos}}
+									</p>
+								</div>
+							</div>
+						</div>
+						<!--/span-->
+					</div>
+					<!--/row-->
+					
+					<!--/row-->
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label col-md-3">Email:</label>
+								<div class="col-md-9">
+									<p class="form-control-static">
+										{{detalle.contactos.email}}
+									</p>
+								</div>
+							</div>
+						</div>
+						<!--/span-->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label col-md-3">Teléfono:</label>
+								<div class="col-md-9">
+									<p class="form-control-static">
+										{{detalle.contactos.telefono}}
+									</p>
+								</div>
+							</div>
+						</div>
+						<!--/span-->
+					</div>
+					
+						<!--/span-->
+					</div>
+				</div>
+				<div class="form-actions">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="row">
+								<div class="col-md-offset-3 col-md-9">
+									<a href="#" ui-sref="contrato.datos.editar" type="submit" class="btn green"><i class="fa fa-pencil"></i> Edit</a>
+									
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	

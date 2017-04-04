@@ -1,0 +1,15 @@
+<div class="form-group form-md-line-input" ng-class="{'has-error' : isError}">
+	<label class="control-label col-md-3" for="{{name}}">{{label}}</label>
+	<div class="col-md-9">
+		<div ng-class="{'input-group' : type=='email'}" class="input-icon right">
+			<!-- <span ng-if="type==='email'" class="input-group-addon">
+				<i class="fa fa-envelope"></i>
+			</span> -->
+			<input type="{{type}}" class="form-control" id="{{name}}" ng-model="inputModel" ng-maxlength="{{max}}" ng-minlength="{{min}}"  name="{{name}}" ng-required="isRequired" ng-change="cleanErrors()"/>
+			<!-- <i class="fa fa-warning" ng-if="isError===true"></i> -->
+			<div class="form-control-focus">
+			</div>
+			<span class="help-block" ><p ng-repeat="msg in errors">{{msg}}</p></span>
+		</div>
+	</div>
+</div>

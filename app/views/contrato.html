@@ -1,0 +1,39 @@
+<div class="row">
+	<div class="col-md-12">
+		<div class="tabbable tabbable-custom tabbable-noborder tabbable-reversed">
+			<ul class="nav nav-tabs">
+				<li ng-class="{active: $state.includes('contrato.datos')}">
+					<a ui-sref="contrato.datos.detalle" >
+						Mis datos 
+					</a>
+				</li>
+				<li ng-class="{active: $state.includes('contrato.facturacion')}">
+					<a ui-sref="contrato.facturacion.detalle" >
+							Facturación
+					</a>
+				</li>
+				<li ng-class="{active: $state.includes('contrato.misservicios')}">
+					<a ui-sref="contrato.misservicios" >
+							Mis Servicios
+					</a>
+				</li>
+				<li ng-class="{active: $state.includes('contrato.facturas')}">
+					<a ui-sref="contrato.facturas.list" >
+							Mis Facturas
+					</a>
+				</li>
+			</ul>
+
+			<div class="tab-content">
+				<div class="tab-pane active">
+					<div ui-view></div>
+				</div>
+				
+			</div>
+			
+			</div>
+		</div>
+	</div>
+</div>
+
+

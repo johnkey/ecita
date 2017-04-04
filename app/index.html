@@ -1,0 +1,190 @@
+<!doctype html>
+<!--[if !IE]><!-->
+<html lang="en" data-ng-app="ecitaApp">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+  <title data-ng-bind="'Metronic AngularJS | ' + $state.current.data.pageTitle"></title>
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="" name="description"/>
+  <meta content="" name="author"/>
+
+
+
+  <!-- BEGIN GLOBAL MANDATORY STYLES -->
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
+  <!-- END GLOBAL MANDATORY STYLES -->
+
+  <!-- BEGIN DYMANICLY LOADED CSS FILES(all plugin and page related styles must be loaded between GLOBAL and THEME css files ) -->
+  <link id="ng_load_plugins_before"/>
+  <!-- END DYMANICLY LOADED CSS FILES -->
+
+ 
+
+  
+  
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="bower_components/morris.js/morris.css" />
+  <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="bower_components/simple-line-icons/css/simple-line-icons.css" />
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+   <link href="app/styles/components-rounded.css" id="style_components" rel="stylesheet" type="text/css"/>
+  <link href="app/styles/plugins.css" rel="stylesheet" type="text/css"/>
+  <link href="app/styles/layout.css" rel="stylesheet" type="text/css"/>
+  <link href="app/styles/light.css" rel="stylesheet" type="text/css" id="style_color"/>
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+  
+  <link rel="shortcut icon" href="favicon.ico"/>
+</head>
+<!-- END HEAD -->
+
+<!-- BEGIN BODY -->
+<!-- DOC: Apply "page-header-fixed-mobile" and "page-footer-fixed-mobile" class to body element to force fixed header or footer in mobile devices -->
+<!-- DOC: Apply "page-sidebar-closed" class to the body and "page-sidebar-menu-closed" class to the sidebar menu element to hide the sidebar by default -->
+<!-- DOC: Apply "page-sidebar-hide" class to the body to make the sidebar completely hidden on toggle -->
+<!-- DOC: Apply "page-sidebar-closed-hide-logo" class to the body element to make the logo hidden on sidebar toggle -->
+<!-- DOC: Apply "page-sidebar-hide" class to body element to completely hide the sidebar on sidebar toggle -->
+<!-- DOC: Apply "page-sidebar-fixed" class to have fixed sidebar -->
+<!-- DOC: Apply "page-footer-fixed" class to the body element to have fixed footer -->
+<!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
+<!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
+<body ng-controller="AppController" class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo page-on-load" ng-class="{'page-sidebar-closed': settings.layout.pageSidebarClosed}">
+
+  <!-- BEGIN PAGE SPINNER -->
+  <div ng-spinner-bar class="page-spinner-bar">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+  </div>
+  <!-- END PAGE SPINNER -->
+
+  <!-- BEGIN HEADER -->
+  <div data-ng-include="'views/tpl/header.html'" data-ng-controller="HeaderController" class="page-header navbar navbar-fixed-top">
+  </div>
+  <!-- END HEADER -->
+
+  <div class="clearfix">
+  </div>
+
+  <!-- BEGIN CONTAINER -->
+  <div class="page-container">
+    <!-- BEGIN SIDEBAR -->
+    <div data-ng-include="'views/tpl/sidebar.html'" data-ng-controller="SidebarController" class="page-sidebar-wrapper">      
+    </div>
+    <!-- END SIDEBAR -->
+    <div class="page-content-wrapper">
+      <div class="page-content">
+        <!-- BEGIN PAGE HEAD -->
+        <div data-ng-include="'views/tpl/page-head.html'" data-ng-controller="PageHeadController" class="page-head">      
+        </div>
+        <!-- END PAGE HEAD -->
+        <!-- BEGIN ACTUAL CONTENT -->
+        <div ui-view class="fade-in-up">
+        </div> 
+        <!-- END ACTUAL CONTENT -->
+      </div>
+    </div>
+  </div>
+  <!-- END CONTAINER -->
+  
+  <!-- BEGIN FOOTER -->
+  <div data-ng-include="'views/tpl/footer.html'" data-ng-controller="FooterController" class="page-footer">
+  </div>
+  <!-- END FOOTER -->
+
+  <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+
+  <!-- BEGIN CORE JQUERY PLUGINS -->
+  <!--[if lt IE 9]>
+  <script src="../../../assets/global/plugins/respond.min.js"></script>
+  <script src="../../../assets/global/plugins/excanvas.min.js"></script> 
+  <![endif]-->
+ 
+ 
+
+  
+  
+
+
+  <!-- build:js(.) scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-touch/angular-touch.js"></script>
+  <script src="bower_components/jquery-migrate/jquery-migrate.js"></script>
+  <script src="bower_components/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js"></script>
+  <script src="bower_components/jquery.slimscroll/jquery.slimscroll.js"></script>
+  <script src="bower_components/blockui/jquery.blockUI.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
+  <script src="bower_components/ui-bootstrap-tpls-0.13.1-SNAPSHOT/ui-bootstrap-tpls-0.13.1-SNAPSHOT.js"></script>
+  <script src="bower_components/raphael/raphael.js"></script>
+  <script src="bower_components/mocha/mocha.js"></script>
+  <script src="bower_components/morris.js/morris.js"></script>
+  <script src="bower_components/firebase/firebase.js"></script>
+  <script src="bower_components/angularfire/dist/angularfire.js"></script>
+  <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+  <script src="bower_components/ngAutocomplete/src/ngAutocomplete.js"></script>
+  <script src="bower_components/angular-translate/angular-translate.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js({.tmp,app}) scripts/scripts.js -->
+  <script src="scripts/app.js"></script>
+  <script src="scripts/directives.js"></script>
+  
+  <!-- <script src="scripts/controllers/dashboardcontroller.js"></script> -->
+  <!-- <script src="scripts/controllers/datosempresa.js"></script> -->
+  <!-- <script src="scripts/controllers/empresa.datos.js"></script> -->
+  <!-- <script src="scripts/controllers/empresa.facturacion.js"></script> -->
+  <!-- <script src="scripts/controllers/empresa.misservicios.js"></script> -->
+  <!-- <script src="scripts/controllers/empresa.facturas.js"></script> -->
+  <!-- <script src="scripts/controllers/empresa.facturas.detalle.js"></script> -->
+  <!-- <script src="scripts/controllers/empresa.datos.editar.js"></script> -->
+  <!--<script src="scripts/controllers/empresa.facturacion.editar.js"></script>-->
+  <!--<script src="scripts/services/modospago.js"></script>-->
+  <!--<script src="scripts/services/tipostarjeta.js"></script>-->
+  <!--<script src="scripts/services/periodo.js"></script>-->
+  <!--<script src="scripts/services/misdatos.js"></script>-->
+  
+
+
+   <!-- BEGIN APP LEVEL JQUERY SCRIPTS -->
+  <script src="scripts/metronic.js"></script>
+  <script src="scripts/layout.js"></script>
+  <!-- END APP LEVEL JQUERY SCRIPTS -->
+
+
+<script src="scripts/directives/ecinput.js"></script>
+<script src="scripts/directives/formvalidate.js"></script>
+<!-- endbuild -->
+  <script type="text/javascript">
+    /* Init Metronic's core jquery plugins and layout scripts */
+    $(document).ready(function() {   
+      Metronic.init(); // Run metronic theme
+      Metronic.setAssetsPath('images/'); // Set the assets folder path     
+    });
+  </script>
+  <!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

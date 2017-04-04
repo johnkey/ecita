@@ -1,0 +1,387 @@
+<div class="portlet light" ng-controller="EmpresaFacturacionEditarCtrl">
+	<div class="portlet-title">
+		<div class="caption font-green-haze">
+			<i class="icon-credit-card font-green-haze"></i>
+			<span class="caption-subject bold uppercase"> Editar configuración de pago</span>
+		</div>
+		<div class="actions">
+			<a class="btn btn-circle btn-icon-only blue" href="javascript:;">
+				<i class="icon-printer"></i>
+			</a>
+			<a class="btn btn-circle btn-icon-only green" href="javascript:;">
+				<i class="icon-wrench"></i>
+			</a>
+			<a class="btn btn-circle btn-icon-only red" href="javascript:;">
+				<i class="icon-trash"></i>
+			</a>
+			<a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title="">
+			</a>
+		</div>
+	</div>
+	<div class="portlet-body form">
+
+		<form class="form-horizontal" role="form">
+
+			<div class="form-body">
+
+				
+					<!-- <h3 class="form-section">Información</h3> -->
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group form-md-line-input">
+								<label class="control-label col-md-3" for="modopago"> Pago:</label>
+								<div class="col-md-9">
+									<select class="form-control" id="modopago" ng-options="item.id as item.nombre for item in selectPagos" ng-model="facturacion.cuenta.perfil_facturacion.metodos_pago_id">
+									</select>
+
+								</div>
+							</div>
+
+						</div>
+					<!--/span-->
+						<div class="col-md-6">
+							<div class="form-group form-md-line-input" ng-if="facturacion.cuenta.perfil_facturacion.metodos_pago_id==2">
+								<label class="control-label col-md-3" for="tipotarjeta"> Tipo de Tarjeta:</label>
+								<div class="col-md-9">
+									<select class="form-control" id="tipotarjeta" ng-options="item.id as item.nombre for item in selectTarjetas" ng-model="facturacion.cuenta.perfil_facturacion.tipos_tarjeta_id">
+									</select>
+
+								</div>
+							</div>
+						</div>
+						<!--/span-->
+					</div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label col-md-3">Banco:</label>
+								<div class="col-md-9">
+									<p class="form-control-static">
+										{{facturacion.cuenta.perfil_facturacion.nombre_banco}}</p>
+									</div>
+								</div>
+							</div>
+							<!--/span-->
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="control-label col-md-3">BIC:</label>
+									<div class="col-md-9">
+										<p class="form-control-static">
+											{{facturacion.cuenta.perfil_facturacion.BIC}}
+										</p>
+									</div>
+								</div>
+							</div>
+							<!--/span-->
+					</div>
+
+					<!--/row-->
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group form-md-line-input">
+								<label class="control-label col-md-3"> Periodicidad:</label>
+								<div class="col-md-9">
+									<p class="form-control-static">
+										{{facturacion.tarifa.periodicidad.nombre}}
+									</p>
+								</div>
+							</div>
+						</div>
+						<!--/span-->
+					</div>
+					<!--/row-->
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group form-md-line-input" ng-if="facturacion.cuenta.perfil_facturacion.metodos_pago_id==2" ng-class="{'has-error' : errorMessages['facturacion.cuenta.perfil_facturacion.numero_tarjeta']}">
+								<label class="control-label col-md-3" for="numTarjeta"> Número Tarjeta:</label>
+								<div class="col-md-9">
+									<div class="input-icon right">
+										<input type="text" class="form-control" id="numTarjeta"  ng-model="facturacion.cuenta.perfil_facturacion.numero_tarjeta"/>
+											<div class="form-control-focus">
+											</div>
+											<span class="help-block">{{errorMessages['facturacion.cuenta.perfil_facturacion.numero_tarjeta'][0]}}</span>
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--/span-->
+						<div class="col-md-4">
+							<div class="form-group form-md-line-input" ng-if="facturacion.cuenta.perfil_facturacion.metodos_pago_id==2" ng-class="{'has-error' : errorMessages['cuenta.perfil_facturacion.mes_caducidad']}">
+								<label class="control-label col-md-3" for="caducidad"> Caducidad:</label>
+								<div class="col-md-3">
+									<div class="input-icon right">
+										<input type="text" class="form-control" id="mes"  ng-model="facturacion.cuenta.perfil_facturacion.mes_caducidad"/>
+										<i class="fa fa-warning" ng-if="errorMessages['cuenta.perfil_facturacion.mes_caducidad']"></i>
+												<div class="form-control-focus">
+												</div>
+												<span class="help-block">{{errorMessages['cuenta.perfil_facturacion.mes_caducidad'][0]}}</span>
+									</div>
+											
+								</div>
+								<div class="col-md-1">/</div>
+								<div class="col-md-3">
+									<div class="input-icon right">
+										<input type="text" class="form-control" id="mes"  ng-model="facturacion.cuenta.perfil_facturacion.anio_caducidad"/>
+												<i class="fa fa-warning" ng-if="errorMessages['cuenta.perfil_facturacion.anio_caducidad']"></i>
+												<div class="form-control-focus">
+												</div>
+												<span class="help-block">{{errorMessages['cuenta.perfil_facturacion.anio_caducidad'][0]}}</span>
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<!--/span-->
+						
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group form-md-line-input" ng-if="facturacion.cuenta.perfil_facturacion.metodos_pago_id==2">
+								<label class="control-label col-md-3" for="ccv"> CCV:</label>
+								<div class="col-md-9">
+									<input type="text" class="form-control" id="ccv"  ng-model="facturacion.cuenta.perfil_facturacion.ccv"/>
+											<div class="form-control-focus">
+											</div>
+								</div>
+							</div>
+						</div>
+						<!--/span-->
+					</div>
+					<!--/row-->
+					<!--/row-->
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group form-md-line-input" ng-if="facturacion.cuenta.perfil_facturacion.metodos_pago_id==1">
+								<label class="control-label col-md-3" for="iban"> IBAN:</label>
+								<div class="col-md-9">
+									<input type="text" class="form-control" id="iban"  ng-model="facturacion.cuenta.perfil_facturacion.iban"/>
+											<div class="form-control-focus">
+											</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					<!--/row-->
+					
+				</div>
+
+				<h3 class="form-section">Datos de facturación</h3>
+
+
+
+				<div class="row">
+					
+					<div class="col-md-6">
+						<div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.nombre}">
+							<label class="control-label col-md-3" for="nombre">Nombre:</label>
+							<div class="col-md-9" ng-class="{'input-icon right' : errorMessages.nombre}">
+								<input type="text" class="form-control" id="nombre"  ng-model="facturacion.cuenta.perfil_facturacion.nombre"/>
+								<i class="fa fa-warning" ng-if="errorMessages.nombre"></i>
+											<div class="form-control-focus">
+											</div>
+											<span class="help-block">{{errorMessages.nombre[0]}}</span>
+								</div>
+							</div>
+						</div>
+						<!--/span-->
+						<div class="col-md-6">
+							<div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.apellidos}">
+								<label class="control-label col-md-3" for="apellidos">Apellidos:</label>
+								<div class="col-md-9" ng-class="{'input-icon right' : errorMessages.apellidos}">
+									<input type="text" class="form-control" id="apellidos" ng-model="facturacion.cuenta.perfil_facturacion.apellidos"/>
+									<i class="fa fa-warning" ng-if="errorMessages.apellidos"></i>
+											<div class="form-control-focus">
+											</div>
+											<span class="help-block">{{errorMessages.apellidos[0]}}</span>
+								</div>
+							</div>
+						</div>
+						<!--/span-->
+				</div>
+					<!--/row-->
+				<div class="row">
+						<div class="col-md-6">
+							<div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.empresa}">
+								<label class="control-label col-md-3" for="empresa">Empresa:</label>
+								<div class="col-md-9" ng-class="{'input-icon right' : errorMessages.empresa}">
+									<input type="text" class="form-control" id="empresa"  ng-model="facturacion.cuenta.perfil_facturacion.empresa"/>
+									<i class="fa fa-warning" ng-if="errorMessages.empresa"></i>
+											<div class="form-control-focus">
+											</div>
+											<span class="help-block">{{errorMessages.empresa[0]}}</span>
+								</div>
+							</div>
+						</div>
+						<!--/span-->
+						<div class="col-md-6">
+							<div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.cif}">
+								<label class="control-label col-md-3" for="cif">CIF/NIF:</label>
+								<div class="col-md-9" ng-class="{'input-icon right' : errorMessages.cif}">
+									<input type="text" class="form-control" id="cif"  ng-model="facturacion.cuenta.perfil_facturacion.cif"/>
+									<i class="fa fa-warning" ng-if="errorMessages.cif"></i>
+											<div class="form-control-focus">
+											</div>
+											<span class="help-block">{{errorMessages.cif[0]}}</span>
+								</div>
+							</div>
+						</div>
+						<!--/span-->
+				</div>
+					<!--/row-->
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.email}">
+
+								<label class="control-label col-md-3" for="email">Email:</label>
+								<div class="col-md-9">
+										<div class="input-group"  ng-class="{'input-icon right' : errorMessages.email}">
+											<span class="input-group-addon">
+												<i class="fa fa-envelope"></i>
+												</span>
+											<input type="text" class="form-control" id="email" placeholder="Introduzca email" ng-model="facturacion.cuenta.perfil_facturacion.email"/>
+											<i class="fa fa-warning" ng-if="errorMessages.email"></i>
+											<div class="form-control-focus">
+											</div>
+											<span class="help-block">{{errorMessages.email[0]}}</span>
+										</div>
+								</div>
+							</div>
+							
+						</div>
+						<!--/span-->
+						<div class="col-md-6">
+							<div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.telefono}">
+								<label class="control-label col-md-3" for="telefono">Teléfono:</label>
+								<div class="col-md-9" ng-class="{'input-icon right' : errorMessages.telefono}">
+									<input type="text" class="form-control" id="telefono" ng-model="facturacion.cuenta.perfil_facturacion.telefono"/>
+									<i class="fa fa-warning tooltips" ng-if="errorMessages.telefono"></i>
+											<div class="form-control-focus">
+											</div>
+											<span class="help-block">{{errorMessages.telefono[0]}}</span>
+								</div>
+							</div>
+						</div>
+						<!--/span-->
+				</div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.vat}">
+								<label class="control-label col-md-3" for="vat">VAT Number:</label>
+								<div class="col-md-9" ng-class="{'input-icon right' : errorMessages.telefono}">
+									<input type="text" class="form-control" id="vat" ng-model="facturacion.cuenta.perfil_facturacion.vat"/>
+									<i class="fa fa-warning tooltips" ng-if="errorMessages.vat"></i>
+											<div class="form-control-focus">
+											</div>
+											<span class="help-block">{{errorMessages.vat[0]}}</span>
+								</div>
+							</div>
+						</div>
+						
+				</div>
+
+				
+
+
+				<h3 class="form-section">Dirección de facturación</h3>
+				<div class="row">
+					<div class="col-md-6">
+							<div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages['cuenta.perfil_facturacion.direccion']}">
+								<label class="control-label col-md-3" for="direccion">Dirección de facturación:</label>
+								<div class="col-md-9" ng-class="{'input-icon right' :  errorMessages['cuenta.perfil_facturacion.direccion']}">
+									<input type="text" class="form-control" id="direccion"  ng-model="facturacion.cuenta.perfil_facturacion.direccion"/>
+									<i class="fa fa-warning" ng-if="errorMessages['cuenta.perfil_facturacion.direccion']"></i>
+												<div class="form-control-focus">
+												</div>
+												<span class="help-block">{{errorMessages['cuenta.perfil_facturacion.direccion'][0]}}</span>
+									</div>
+							</div>
+					</div>
+						<!--/span-->
+				</div>
+
+				<div class="row">
+						<div class="col-md-6">
+							<div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.ciudad}">
+								<label class="control-label col-md-3" for="ciudad">Ciudad:</label>
+								<div class="col-md-9" ng-class="{'input-icon right' : errorMessages.ciudad}">
+									<input type="text" class="form-control" id="ciudad" ng-model="facturacion.cuenta.perfil_facturacion.localidad"  ng-autocomplete details="goggle_place" options="config"/>
+									<i class="fa fa-warning tooltips" ng-if="errorMessages.ciudad"></i>
+											<div class="form-control-focus">
+											</div>
+											<span class="help-block">{{errorMessages.ciudad[0]}}</span>
+								</div>
+							</div>
+						</div>
+						<!--/span-->
+						<div class="col-md-6">
+							<div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.provincia}">
+								<label class="control-label col-md-3" for="provincia">Provincia/Estado:</label>
+								<div class="col-md-9" ng-class="{'input-icon right' : errorMessages.provincia}">
+									<input type="text" class="form-control" id="provincia"  ng-model="facturacion.cuenta.perfil_facturacion.provincia"/>
+									<i class="fa fa-warning tooltips" ng-if="errorMessages.ciudad"></i>
+											<div class="form-control-focus">
+											</div>
+											<span class="help-block">{{errorMessages.provincia[0]}}</span>
+								</div>
+							</div>
+						</div>
+						<!--/span-->
+					</div>
+					<!--/row-->
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.cp}">
+								<label class="control-label col-md-3" for="cp">Código Postal:</label>
+								<div class="col-md-9" ng-class="{'input-icon right' : errorMessages.cp}">
+									<input type="text" class="form-control" id="cp"  ng-model="facturacion.cuenta.perfil_facturacion.cp"/>
+									<i class="fa fa-warning tooltips" ng-if="errorMessages.cp"></i>
+											<div class="form-control-focus">
+											</div>
+											<span class="help-block">{{errorMessages.cp[0]}}</span>
+								</div>
+							</div>
+						</div>
+						<!--/span-->
+						<div class="col-md-6">
+							<div class="form-group form-md-line-input"  ng-class="{'has-error' : errorMessages.pais}">
+								<label class="control-label col-md-3" for="pais">Pais:</label>
+								<div class="col-md-9" ng-class="{'input-icon right' : errorMessages.pais}">
+									<input type="text" class="form-control" id="pais" ng-model="facturacion.cuenta.perfil_facturacion.pais" maxlength="3"/>
+											<i class="fa fa-warning tooltips" ng-if="errorMessages.pais"></i>
+											<div class="form-control-focus">
+											</div>
+											<span class="help-block">{{errorMessages.pais[0]}}</span>
+								</div>
+
+							</div>
+						</div>
+						<!--/span-->
+					</div>
+
+
+				<div class="form-actions">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="row">
+								<div class="col-md-offset-3 col-md-9">
+									<button type="submit" class="btn blue" ng-click="guardar()"><i class="fa fa-save"></i> Guardar</button>
+									<a href="#" ui-sref="contrato.facturacion.detalle" type="button" class="btn default">Cancel</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+						</div>
+					</div>
+				</div>
+
+
+
+
+			</form>
+
+		</div>
+	</div>
