@@ -17,5 +17,7 @@
 	"cp":"Código Postal",
 	"pais":"Pais",
 	"contacto":"Contacto",
-	"editar":"Editar"
+	"editar":"Editar",
+	"guardar":"Guardar",
+	"cancelar": "Cancelar"
 }

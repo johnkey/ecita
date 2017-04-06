@@ -17,5 +17,7 @@
 	"cp":"Postal Code",
 	"pais":"Country",
 	"contacto":"Contact",
-	"editar":"Edit"
+	"editar":"Edit",
+	"guardar":"Save",
+	"cancelar": "Cancel"
 }
