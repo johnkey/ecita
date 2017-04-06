@@ -26,7 +26,7 @@
 				<div class="row">
 						<div class="col-md-6">
 							<ec-input 
-								label="Nombre:"
+								label="nombre"
 						      	ng-model="datos.nombre"
 						      	name="nombre"
 						      	ng-required="true"
@@ -36,7 +36,7 @@
 						<!--/span-->
 						<div class="col-md-6">
 							<ec-input 
-								label="Apellidos:"
+								label="apellidos"
 						      	ng-model="datos.apellidos"
 						      	name="apellidos"
 						      	ng-required="true"
@@ -49,7 +49,7 @@
 					<div class="row">
 						<div class="col-md-6">
 							<ec-input 
-								label="Empresa:"
+								label="empresa"
 						      	ng-model="datos.empresa"
 						      	name="empresa"
 						      	ng-maxlength="100">
@@ -58,7 +58,7 @@
 						<!--/span-->
 						<div class="col-md-6">
 							<ec-input 
-								label="CIF/NIF:"
+								label="cifnif"
 						      	ng-model="datos.cif"
 						      	name="cif"
 						      	ng-required="true"
@@ -73,7 +73,7 @@
 					<div class="row">
 						<div class="col-md-6">
 							<ec-input 
-								label="Email:"
+								label="email"
 						      	ng-model="datos.email"
 						      	name="email"
 						      	ng-required="true"
@@ -84,7 +84,7 @@
 						<!--/span-->
 						<div class="col-md-6">
 							<ec-input 
-								label="Teléfono:"
+								label="telefono"
 						      	ng-model="datos.telefono"
 						      	name="telefono"
 						      	ng-required="true"
@@ -96,7 +96,8 @@
 
 					<div class="row">
 						<div class="col-md-6">
-							<ec-input label="VAT Number:"
+							<ec-input 
+								label="VAT"
 						      	ng-model="datos.vat"
 						      	name="vat"
 						      	ng-maxlength="10">
@@ -106,10 +107,11 @@
 					</div>
 
 					<!--/row-->
-					<h3 class="form-section">Localización</h3>
+					<h3 class="form-section">{{'localizacion'|translate}}</h3>
 					<div class="row">
 						<div class="col-md-6">
-							<ec-input label="Dirección:"
+							<ec-input 
+								label="direccion"
 						      	ng-model="datos.direccion"
 						      	name="direccion"
 						      	ng-maxlength="150">
@@ -133,7 +135,8 @@
 						</div>
 						<!--/span-->
 						<div class="col-md-6">
-							<ec-input label="Provincia/Estado:"
+							<ec-input 
+								label="provincia"
 						      	ng-model="datos.provincia"
 						      	name="provincia"
 						      	ng-maxlength="100">
@@ -145,7 +148,8 @@
 					<!--/row-->
 					<div class="row">
 						<div class="col-md-6">
-							<ec-input label="Código Postal:"
+							<ec-input 
+								label="cp"
 						      	ng-model="datos.cp"
 						      	name="cp"
 						      	ng-maxlength="10">
@@ -153,7 +157,8 @@
 						</div>
 						<!--/span-->
 						<div class="col-md-6">
-							<ec-input label="País:"
+							<ec-input 
+								label="pais"
 						      	ng-model="datos.pais"
 						      	name="pais"
 						      	ng-required="true"
@@ -163,10 +168,11 @@
 						</div>
 						<!--/span-->
 					</div>
-					<h3 class="form-section">Contacto</h3>
+					<h3 class="form-section">{{'contacto'|translate}}</h3>
 					<div class="row">
 						<div class="col-md-6">
-							<ec-input label="Nombre:"
+							<ec-input 
+								label="nombre"
 						      	ng-model="datos.contactos.nombre"
 						      	name="contactos.nombre"
 						      	ng-maxlength="100">
@@ -174,7 +180,8 @@
 						</div>
 						<!--/span-->
 						<div class="col-md-6">
-							<ec-input label="Apellidos:"
+							<ec-input 
+								label="apellidos"
 						      	ng-model="datos.contactos.apellidos"
 						      	name="contactos.apellidos"
 						      	ng-maxlength="100">
@@ -186,7 +193,8 @@
 					<!--/row-->
 					<div class="row">
 						<div class="col-md-6">
-							<ec-input label="Email:"
+							<ec-input 
+								label="email"
 						      	ng-model="datos.contactos.email"
 						      	name="contactos.email"
 						      	ng-required="true"
@@ -196,7 +204,8 @@
 						</div>
 						<!--/span-->
 						<div class="col-md-6">
-							<ec-input label="Teléfono:"
+							<ec-input 
+								label="telefono"
 						      	ng-model="datos.contactos.telefono"
 						      	name="contactos.telefono"
 						      	ng-maxlength="100">
@@ -213,8 +222,8 @@
 						<div class="col-md-6">
 							<div class="row">
 								<div class="col-md-offset-3 col-md-9">
-									<button type="submit" class="btn blue" ng-click="guardar()" ng-disabled="!formDatos.$valid"><i class="fa fa-save"></i> Guardar</button>
-									<a href="#" ui-sref="contrato.datos.detalle" type="button" class="btn default">Cancel</a>
+									<button type="submit" class="btn blue" ng-click="guardar()" ng-disabled="!formDatos.$valid"><i class="fa fa-save"></i> {{'guardar'|translate}}</button>
+									<a href="#" ui-sref="contrato.datos.detalle" type="button" class="btn default">{{'cancelar'|translate}}</a>
 								</div>
 							</div>
 						</div>
