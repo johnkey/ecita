@@ -33,6 +33,7 @@ angular.module('ecitaApp')
       		
       		
        		var formCtrl = ctrls[0],
+                        ngModelCtrl = ctrls[1],
        			formName = formCtrl ? formCtrl.$name : undefined,
        			elementName = attrs.name;
 
@@ -42,7 +43,8 @@ angular.module('ecitaApp')
        			'required': 'El campo es obligatorio',
        			'maxlength': 'El campo es demasiado largo',
        			'minlength': 'El campo es demasiado corto',
-       			'email':'Formato de mail inválido'
+       			'email':'Formato de mail inválido',
+                        'dni':'Formato dni inválido'
        		};
        		
 
@@ -85,14 +87,48 @@ angular.module('ecitaApp')
        		});
 
 
-       		
-
        		if(angular.isUndefined(attrs.type) || attrs.type===null){
        			attrs.type='text';
        		}else if (attrs.type==='email'){
        			angular.element('input#'+attrs.name).prepend('<span class="input-group-addon"><i class="fa fa-envelope"></i></span>');
-       		}
+       		}else if (attrs.type==='dni'){
+                        formCtrl[elementName].$validators.dni=function(modelValue,viewValue){
+                              var valid = validFormat(modelValue);
+                              formCtrl[elementName].$setValidity(elementName,valid);
+                              return valid;
+                        }
+                  }
 
+                  //FUNCIONES DE VALIDACIÓN DE DNI
+                  function validDni(dni) {
+                      var chararter = dni.substr(8),
+                          dniNumber = dni.substr(0, 8),
+                          lockup = 'TRWAGMYFPDXBNJZSQVHLCKE';
+                      return angular.uppercase(chararter) === lockup.charAt(dniNumber % 23);
+                  }
+
+                  function validNie() {
+                      // var firstChararter = nie.substr(0, 0),
+                      //     lastChararter = nie.substr(8),
+                      //     nieNumber = nie.substr(0, 8);
+                      return true; // esperando validacion
+                  }
+
+                  function validFormat(text) {
+
+                      if (text === undefined || text === null) {
+                          return false;
+                      }
+                      if (text.match(/^\d{8}[a-zA-Z]$/)) {
+                          return validDni(text);
+                      }
+                      if (text.match(/^[a-zA-Z]\d{7}[a-zA-Z]$/)) {
+                          //return 'NIE';
+                          return validNie(text);
+                      } else {
+                          return false; //return 'FORMAT ERROR';
+                      }
+                  }
 
 
        		
