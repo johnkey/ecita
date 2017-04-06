@@ -10,13 +10,6 @@
 angular.module('ecitaApp')
   .controller('EmpresaDatosEditarCtrl',['$scope','$state','$resource', 'toastr','GLOBAL_CONFIG','MisDatosSvc', function ($scope,$state,$resource,toastr,globalConfig,misDatosSvc) {
    
-   		
-  		//autocompletar ciuddaa
-  		$scope.config = {
-	      country: 'es',
-	      types: '(regions)'
-	    }
-
    		/*var ref = new Firebase('https://e-cita.firebaseio.com/cuentas/-JxEVYVSUURothTJ7zDu');
    		
    		$scope.datos = $firebaseObject(ref);

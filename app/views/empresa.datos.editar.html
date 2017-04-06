@@ -62,7 +62,8 @@
 						      	ng-model="datos.cif"
 						      	name="cif"
 						      	ng-required="true"
-						      	type="dni">
+						      	type="dni"
+						      	placeholder="ej: 99999999X">
 						     </ec-input>
 						    
 						</div>
@@ -77,7 +78,8 @@
 						      	name="email"
 						      	ng-required="true"
 						      	ng-maxlength="100"
-						      	type="email">
+						      	type="email"
+								placeholder="ej: johndoe@dominio.com">
 						     </ec-input>
 						</div>
 						<!--/span-->
@@ -119,18 +121,13 @@
 					</div>
 					<div class="row">
 						<div class="col-md-6">
-							<div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.ciudad || formDatos.ciudad.$invalid}">
-								<label class="control-label col-md-3" for="ciudad">Ciudad:</label>
-								<div class="col-md-9">
-									<div class="input-icon right">
-										<input type="text" class="form-control" id="ciudad" name="ciudad" ng-model="datos.localidad"  ng-autocomplete details="goggle_place" options="config" ng-maxlength="100"/>
-										<i class="fa fa-warning tooltips" ng-if="errorMessages.ciudad || formDatos.ciudad.$invalid"></i>
-											<div class="form-control-focus">
-											</div>
-											<span class="help-block">{{errorMessages.ciudad[0]}}</span>
-									</div>
-								</div>
-							</div> 			
+							<ec-input 
+								label="ciudad"
+						      	ng-model="datos.localidad"
+						      	name="ciudad"
+						      	ng-maxlength="100"
+						      	ec-autocomplete="(cities)">
+						     </ec-input> 			
 						</div>
 						<!--/span-->
 						<div class="col-md-6">

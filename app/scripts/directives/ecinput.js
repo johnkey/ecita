@@ -8,6 +8,40 @@
  */
 angular.module('ecitaApp')
   .directive('ecInput',[ function () {
+    
+
+                  //FUNCIONES DE VALIDACIÓN DE DNI
+                  function validDni(dni) {
+                      var chararter = dni.substr(8),
+                          dniNumber = dni.substr(0, 8),
+                          lockup = 'TRWAGMYFPDXBNJZSQVHLCKE';
+                      return angular.uppercase(chararter) === lockup.charAt(dniNumber % 23);
+                  }
+
+                  function validNie() {
+                      // var firstChararter = nie.substr(0, 0),
+                      //     lastChararter = nie.substr(8),
+                      //     nieNumber = nie.substr(0, 8);
+                      return true; // esperando validacion
+                  }
+
+                  function validFormat(text) {
+
+                      if (text === undefined || text === null) {
+                          return false;
+                      }
+                      if (text.match(/^\d{8}[a-zA-Z]$/)) {
+                          return validDni(text);
+                      }
+                      if (text.match(/^[a-zA-Z]\d{7}[a-zA-Z]$/)) {
+                          //return 'NIE';
+                          return validNie(text);
+                      } else {
+                          return false; //return 'FORMAT ERROR';
+                      }
+                  }
+
+
     return {
       templateUrl: 'views/tpl/ec-input.html', 
       restrict: 'E',
@@ -22,7 +56,8 @@ angular.module('ecitaApp')
       	max: '@ngMaxlength',
       	inputModel:'=ngModel',
       	type:'@',
-      	isRequired:'@ngRequired'
+      	isRequired:'@ngRequired',
+            placeholder: '@'
       },
       controller:['$scope',function(scope){
       		scope.cleanErrors = function(){
@@ -98,41 +133,7 @@ angular.module('ecitaApp')
                               return valid;
                         }
                   }
-
-                  //FUNCIONES DE VALIDACIÓN DE DNI
-                  function validDni(dni) {
-                      var chararter = dni.substr(8),
-                          dniNumber = dni.substr(0, 8),
-                          lockup = 'TRWAGMYFPDXBNJZSQVHLCKE';
-                      return angular.uppercase(chararter) === lockup.charAt(dniNumber % 23);
-                  }
-
-                  function validNie() {
-                      // var firstChararter = nie.substr(0, 0),
-                      //     lastChararter = nie.substr(8),
-                      //     nieNumber = nie.substr(0, 8);
-                      return true; // esperando validacion
-                  }
-
-                  function validFormat(text) {
-
-                      if (text === undefined || text === null) {
-                          return false;
-                      }
-                      if (text.match(/^\d{8}[a-zA-Z]$/)) {
-                          return validDni(text);
-                      }
-                      if (text.match(/^[a-zA-Z]\d{7}[a-zA-Z]$/)) {
-                          //return 'NIE';
-                          return validNie(text);
-                      } else {
-                          return false; //return 'FORMAT ERROR';
-                      }
-                  }
-
-
-       		
-       		
+  		
       }
     };
   }]);

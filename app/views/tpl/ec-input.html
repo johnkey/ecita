@@ -2,10 +2,10 @@
 	<label class="control-label col-md-3" for="{{name}}">{{label|translate}}:</label>
 	<div class="col-md-9">
 		<div ng-class="{'input-group' : type=='email'}" class="input-icon right">
-			<!-- <span ng-if="type==='email'" class="input-group-addon">
+			<span ng-if="type==='email'" class="input-group-addon">
 				<i class="fa fa-envelope"></i>
-			</span> -->
-			<input type="{{type}}" class="form-control" id="{{name}}" ng-model="inputModel" ng-maxlength="{{max}}" ng-minlength="{{min}}"  name="{{name}}" ng-required="isRequired" ng-change="cleanErrors()"/>
+			</span> 
+			<input type="{{type}}" class="form-control" id="{{name}}" ng-model="inputModel" ng-maxlength="{{max}}" ng-minlength="{{min}}"  name="{{name}}" ng-required="isRequired" ng-change="cleanErrors()"  placeholder="{{placeholder}}"/>
 			<!-- <i class="fa fa-warning" ng-if="isError===true"></i> -->
 			<div class="form-control-focus">
 			</div>
