@@ -47,6 +47,7 @@ module.exports = function(config) {
       'bower_components/angular-toastr/dist/angular-toastr.tpls.js',
       'bower_components/ngAutocomplete/src/ngAutocomplete.js',
       'bower_components/angular-translate/angular-translate.js',
+      'bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

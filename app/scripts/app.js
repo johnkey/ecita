@@ -12,7 +12,8 @@ var ecitaApp = angular.module("ecitaApp", [
     "ngAutocomplete",
     "firebase",
     "ngResource",
-    "ngCookies"
+    "ngCookies",
+    "pascalprecht.translate"
 ]); 
 
 /* Configure ocLazyLoader(refer: https://github.com/ocombe/ocLazyLoad) */
@@ -123,7 +124,7 @@ ecitaApp.controller('SidebarController', ['$scope', function($scope) {
 ecitaApp.controller('PageHeadController', ['$scope', function($scope) {
     /*$scope.$on('$includeContentLoaded', function() {        
         Demo.init(); // init theme panel
-    });*/
+    });*/   
 }]);
 
 /* Setup Layout Part - Footer */
@@ -134,7 +135,7 @@ ecitaApp.controller('FooterController', ['$scope', function($scope) {
 }]);
 
 /* Setup Rounting For All Pages */
-ecitaApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+ecitaApp.config(['$stateProvider', '$urlRouterProvider','$translateProvider', function($stateProvider, $urlRouterProvider) {
 
     // Redirect any unmatched url
     $urlRouterProvider.otherwise("/dashboard.html");
@@ -174,7 +175,7 @@ ecitaApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider
         .state('contrato', {
             url: "/cuenta",
             templateUrl: "views/contrato.html",            
-            data: {pageTitle: 'Mi Cuenta', pageSubTitle: 'Información de la cuenta'},
+            data: {pageTitle: 'micuentatitle', pageSubTitle: 'micuentasubtitle'},
             controller: "DatosEmpresaCtrl",
             resolve: {
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
@@ -209,7 +210,7 @@ ecitaApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider
         .state('contrato.datos.detalle', {
             url: "/datos.html",
             templateUrl: "views/empresa.datos.html",            
-            data: {pageTitle: 'Mi Cuenta', pageSubTitle: 'Información de su cuenta'},
+            //data: {pageTitle: 'Mi Cuenta', pageSubTitle: 'Información de su cuenta'},
             controller: "EmpresaDatosCtrl",
             resolve: {
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
@@ -227,7 +228,7 @@ ecitaApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider
         .state('contrato.datos.editar', {
             url: "/datos/editar.html",
             templateUrl: "views/empresa.datos.editar.html",            
-            data: {pageTitle: 'Mi Cuenta', pageSubTitle: 'Información de su cuenta'},
+            //data: {pageTitle: 'Mi Cuenta', pageSubTitle: 'Información de su cuenta'},
             controller: "EmpresaDatosEditarCtrl",
             resolve: {
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
@@ -389,6 +390,15 @@ ecitaApp.config(['$httpProvider', function($httpProvider) {
  
 }]);
 
+/*configuración para i18n*/
+ecitaApp.config(['$translateProvider','$translatePartialLoaderProvider', function($translateProvider,$translatePartialLoaderProvider) {
+   
+    $translatePartialLoaderProvider.addPart('misdatos');
+    $translateProvider.useLoader('$translatePartialLoader', {
+      urlTemplate: '/i18n/{part}/{lang}.json'
+    });
+    $translateProvider.preferredLanguage('es');
+}]);
 
 
 /* Init global settings and run the app */

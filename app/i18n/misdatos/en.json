@@ -1,0 +1,21 @@
+{
+	"micuentatitle":"My Account",
+	"micuentasubtitle": "Acount information",
+	"misdatos": "My Data",
+	"nombre":"Name",
+	"apellidos":"Last Name",
+	"title":"ACCOUNT DETAILS",
+	"empresa":"Business",
+	"cifnif":"CIF/NIF",
+	"email":"Email",
+	"VAT":"VAT Number",
+	"telefono":"Telephone",
+	"localizacion":"Localization",
+	"direccion":"Direcction",
+	"ciudad":"City",
+	"provincia":"State",
+	"cp":"Postal Code",
+	"pais":"Country",
+	"contacto":"Contact",
+	"editar":"Edit"
+}

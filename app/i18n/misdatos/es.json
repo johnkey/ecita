@@ -1,0 +1,21 @@
+{
+	"micuentatitle":"Mi Cuenta",
+	"micuentasubtitle": "Información de su cuenta",
+	"misdatos": "Mis Datos",
+	"nombre":"Nombre",
+	"apellidos":"Apellidos",
+	"title":"DETALLE DE CUENTA",
+	"empresa":"Empresa",
+	"cifnif":"CIF/NIF",
+	"email":"Email",
+	"VAT":"Número VAT",
+	"telefono":"Telefono",
+	"localizacion":"Localización",
+	"direccion":"Dirección",
+	"ciudad":"Ciudad",
+	"provincia":"Provincia/Estado",
+	"cp":"Código Postal",
+	"pais":"Pais",
+	"contacto":"Contacto",
+	"editar":"Editar"
+}
