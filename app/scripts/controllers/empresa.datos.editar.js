@@ -29,7 +29,7 @@ angular.module('ecitaApp')
 
    		});
 
-  		$scope.guardar = function(){
+      $scope.guardar = function(){
 
   			$scope.datos.$save().catch(function(error){
   				if (error) {
