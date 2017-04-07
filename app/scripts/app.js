@@ -398,6 +398,7 @@ ecitaApp.config(['$translateProvider','$translatePartialLoaderProvider', functio
       urlTemplate: '/i18n/{part}/{lang}.json'
     });
     $translateProvider.preferredLanguage('es');
+    //$translateProvider.determinePreferredLanguage();
 }]);
 
 
