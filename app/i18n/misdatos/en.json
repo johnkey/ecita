@@ -19,5 +19,15 @@
 	"contacto":"Contact",
 	"editar":"Edit",
 	"guardar":"Save",
-	"cancelar": "Cancel"
+	"cancelar": "Cancel",
+	"numtarjeta": "Credit Card",
+	"ccv":"CCV",
+	"iban":"IBAN",
+	"pago":"Pay Type",
+	"tipotarjeta":"Credit Card Type",
+	"banco":"Bank",
+	"bic":"BIC",
+	"caducidad":"Caducity",
+	"periodicidad":"Periodicity",
+	"datosfacturacion":"Billing"
 }

@@ -73,13 +73,13 @@ angular.module('ecitaApp')
 	}
 
     return {
-      restrict: 'AE',
-      require:'ecInput',
+      restrict: 'A',
       transclude:true,
+      replace:true,
       link: function postLink(scope, element, attrs) {
         
         	var input = element.children().find('input');
-      		input.attr('ng-autocomplete','');
+        	input.attr('ng-autocomplete','');
       		input.attr('details','google_places');
 
       		
@@ -93,7 +93,7 @@ angular.module('ecitaApp')
 
       		scope.$watch('google_places',function(newValue){
         
-	            if (angular.isDefined(newValue.address_components)){
+	            if (angular.isDefined(newValue)){
 	              scope.localidad=getCity(newValue);
 	              scope.provincia= getState(newValue);
 	              scope.pais= getCountry();

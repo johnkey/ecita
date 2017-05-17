@@ -29,7 +29,7 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group form-md-line-input">
-								<label class="control-label col-md-3" for="modopago"> Pago:</label>
+								<label class="control-label col-md-3" for="modopago"> {{'pago'|translate}}:</label>
 								<div class="col-md-9">
 									<select class="form-control" id="modopago" ng-options="item.id as item.nombre for item in selectPagos" ng-model="facturacion.cuenta.perfil_facturacion.metodos_pago_id">
 									</select>
@@ -41,7 +41,7 @@
 					<!--/span-->
 						<div class="col-md-6">
 							<div class="form-group form-md-line-input" ng-if="facturacion.cuenta.perfil_facturacion.metodos_pago_id==2">
-								<label class="control-label col-md-3" for="tipotarjeta"> Tipo de Tarjeta:</label>
+								<label class="control-label col-md-3" for="tipotarjeta"> {{'tipotarjeta'|translate}}:</label>
 								<div class="col-md-9">
 									<select class="form-control" id="tipotarjeta" ng-options="item.id as item.nombre for item in selectTarjetas" ng-model="facturacion.cuenta.perfil_facturacion.tipos_tarjeta_id">
 									</select>
@@ -55,7 +55,7 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
-								<label class="control-label col-md-3">Banco:</label>
+								<label class="control-label col-md-3">{{'banco'|translate}}:</label>
 								<div class="col-md-9">
 									<p class="form-control-static">
 										{{facturacion.cuenta.perfil_facturacion.nombre_banco}}</p>
@@ -65,7 +65,7 @@
 							<!--/span-->
 							<div class="col-md-6">
 								<div class="form-group">
-									<label class="control-label col-md-3">BIC:</label>
+									<label class="control-label col-md-3">{{'bic'|translate}}:</label>
 									<div class="col-md-9">
 										<p class="form-control-static">
 											{{facturacion.cuenta.perfil_facturacion.BIC}}
@@ -80,7 +80,7 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group form-md-line-input">
-								<label class="control-label col-md-3"> Periodicidad:</label>
+								<label class="control-label col-md-3"> {{'periodicidad'|translate}}:</label>
 								<div class="col-md-9">
 									<p class="form-control-static">
 										{{facturacion.tarifa.periodicidad.nombre}}
@@ -93,7 +93,7 @@
 					<!--/row-->
 					<div class="row">
 						<div class="col-md-6">
-							<div class="form-group form-md-line-input" ng-if="facturacion.cuenta.perfil_facturacion.metodos_pago_id==2" ng-class="{'has-error' : errorMessages['facturacion.cuenta.perfil_facturacion.numero_tarjeta']}">
+							<!-- <div class="form-group form-md-line-input" ng-if="facturacion.cuenta.perfil_facturacion.metodos_pago_id==2" ng-class="{'has-error' : errorMessages['facturacion.cuenta.perfil_facturacion.numero_tarjeta']}">
 								<label class="control-label col-md-3" for="numTarjeta"> Número Tarjeta:</label>
 								<div class="col-md-9">
 									<div class="input-icon right">
@@ -104,12 +104,20 @@
 
 									</div>
 								</div>
-							</div>
+							</div> -->
+							<ec-input 
+								label="numtarjeta"
+						      	ng-model="facturacion.cuenta.perfil_facturacion.numero_tarjeta"
+						      	name="numTarjeta"
+						      	ng-maxlength="16"
+						      	ng-minlength="16"
+						      	ng-if="facturacion.cuenta.perfil_facturacion.metodos_pago_id==2">
+						     </ec-input> 
 						</div>
 						<!--/span-->
 						<div class="col-md-4">
 							<div class="form-group form-md-line-input" ng-if="facturacion.cuenta.perfil_facturacion.metodos_pago_id==2" ng-class="{'has-error' : errorMessages['cuenta.perfil_facturacion.mes_caducidad']}">
-								<label class="control-label col-md-3" for="caducidad"> Caducidad:</label>
+								<label class="control-label col-md-3" for="caducidad"> {{'caducidad'|translate}}:</label>
 								<div class="col-md-3">
 									<div class="input-icon right">
 										<input type="text" class="form-control" id="mes"  ng-model="facturacion.cuenta.perfil_facturacion.mes_caducidad"/>
@@ -138,14 +146,22 @@
 					</div>
 					<div class="row">
 						<div class="col-md-6">
-							<div class="form-group form-md-line-input" ng-if="facturacion.cuenta.perfil_facturacion.metodos_pago_id==2">
+							<!-- <div class="form-group form-md-line-input" ng-if="facturacion.cuenta.perfil_facturacion.metodos_pago_id==2">
 								<label class="control-label col-md-3" for="ccv"> CCV:</label>
 								<div class="col-md-9">
 									<input type="text" class="form-control" id="ccv"  ng-model="facturacion.cuenta.perfil_facturacion.ccv"/>
 											<div class="form-control-focus">
 											</div>
 								</div>
-							</div>
+							</div> -->
+							<ec-input 
+								label="ccv"
+						      	ng-model="facturacion.cuenta.perfil_facturacion.ccv"
+						      	name="ccv"
+						      	ng-maxlength="3"
+						      	ng-minlength="3"
+						      	ng-if="facturacion.cuenta.perfil_facturacion.metodos_pago_id==2">
+						     </ec-input>
 						</div>
 						<!--/span-->
 					</div>
@@ -153,14 +169,23 @@
 					<!--/row-->
 					<div class="row">
 						<div class="col-md-6">
-							<div class="form-group form-md-line-input" ng-if="facturacion.cuenta.perfil_facturacion.metodos_pago_id==1">
+							<!-- <div class="form-group form-md-line-input" ng-if="facturacion.cuenta.perfil_facturacion.metodos_pago_id==1">
 								<label class="control-label col-md-3" for="iban"> IBAN:</label>
 								<div class="col-md-9">
 									<input type="text" class="form-control" id="iban"  ng-model="facturacion.cuenta.perfil_facturacion.iban"/>
 											<div class="form-control-focus">
 											</div>
 								</div>
-							</div>
+							</div> -->
+							<ec-input 
+								label="iban"
+						      	ng-model="facturacion.cuenta.perfil_facturacion.iban"
+						      	name="iban"
+						      	ng-maxlength="24"
+						      	ng-minlength="24"
+						      	placeholder="ej: ES4012341234121234567890"
+						      	ng-if="facturacion.cuenta.perfil_facturacion.metodos_pago_id==1">
+						     </ec-input>
 						</div>
 						
 					</div>
@@ -168,27 +193,33 @@
 					
 				</div>
 
-				<h3 class="form-section">Datos de facturación</h3>
+				<h3 class="form-section">{{'datosfacturacion'|translate}}</h3>
 
 
 
 				<div class="row">
 					
-					<div class="col-md-6">
-						<div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.nombre}">
-							<label class="control-label col-md-3" for="nombre">Nombre:</label>
-							<div class="col-md-9" ng-class="{'input-icon right' : errorMessages.nombre}">
-								<input type="text" class="form-control" id="nombre"  ng-model="facturacion.cuenta.perfil_facturacion.nombre"/>
-								<i class="fa fa-warning" ng-if="errorMessages.nombre"></i>
-											<div class="form-control-focus">
-											</div>
-											<span class="help-block">{{errorMessages.nombre[0]}}</span>
-								</div>
-							</div>
+						<div class="col-md-6">
+							<!-- <div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.nombre}">
+								<label class="control-label col-md-3" for="nombre">Nombre:</label>
+								<div class="col-md-9" ng-class="{'input-icon right' : errorMessages.nombre}">
+									<input type="text" class="form-control" id="nombre"  ng-model="facturacion.cuenta.perfil_facturacion.nombre"/>
+									<i class="fa fa-warning" ng-if="errorMessages.nombre"></i>
+												<div class="form-control-focus">
+												</div>
+												<span class="help-block">{{errorMessages.nombre[0]}}</span>
+									</div>
+							</div> -->
+							<ec-input 
+								label="nombre"
+						      	ng-model="facturacion.cuenta.perfil_facturacion.nombre"
+						      	name="nombre"
+						      	ng-maxlength="100">
+						     </ec-input>
 						</div>
 						<!--/span-->
 						<div class="col-md-6">
-							<div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.apellidos}">
+							<!-- <div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.apellidos}">
 								<label class="control-label col-md-3" for="apellidos">Apellidos:</label>
 								<div class="col-md-9" ng-class="{'input-icon right' : errorMessages.apellidos}">
 									<input type="text" class="form-control" id="apellidos" ng-model="facturacion.cuenta.perfil_facturacion.apellidos"/>
@@ -197,14 +228,20 @@
 											</div>
 											<span class="help-block">{{errorMessages.apellidos[0]}}</span>
 								</div>
-							</div>
+							</div> -->
+							<ec-input 
+								label="apellidos"
+						      	ng-model="facturacion.cuenta.perfil_facturacion.apellidos"
+						      	name="apellidos"
+						      	ng-maxlength="100">
+						     </ec-input>
 						</div>
 						<!--/span-->
 				</div>
 					<!--/row-->
 				<div class="row">
 						<div class="col-md-6">
-							<div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.empresa}">
+							<!-- <div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.empresa}">
 								<label class="control-label col-md-3" for="empresa">Empresa:</label>
 								<div class="col-md-9" ng-class="{'input-icon right' : errorMessages.empresa}">
 									<input type="text" class="form-control" id="empresa"  ng-model="facturacion.cuenta.perfil_facturacion.empresa"/>
@@ -213,11 +250,17 @@
 											</div>
 											<span class="help-block">{{errorMessages.empresa[0]}}</span>
 								</div>
-							</div>
+							</div> -->
+							<ec-input 
+								label="empresa"
+						      	ng-model="facturacion.cuenta.perfil_facturacion.empresa"
+						      	name="empresa"
+						      	ng-maxlength="100">
+						     </ec-input>
 						</div>
 						<!--/span-->
 						<div class="col-md-6">
-							<div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.cif}">
+							<!-- <div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.cif}">
 								<label class="control-label col-md-3" for="cif">CIF/NIF:</label>
 								<div class="col-md-9" ng-class="{'input-icon right' : errorMessages.cif}">
 									<input type="text" class="form-control" id="cif"  ng-model="facturacion.cuenta.perfil_facturacion.cif"/>
@@ -226,14 +269,20 @@
 											</div>
 											<span class="help-block">{{errorMessages.cif[0]}}</span>
 								</div>
-							</div>
+							</div> -->
+							<ec-input 
+								label="cifnif"
+						      	ng-model="facturacion.cuenta.perfil_facturacion.cif"
+						      	name="cif"
+						      	ng-maxlength="100">
+						     </ec-input>
 						</div>
 						<!--/span-->
 				</div>
 					<!--/row-->
 					<div class="row">
 						<div class="col-md-6">
-							<div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.email}">
+							<!-- <div class="form-group form-md-line-input" ng-class="{'has-error' : errorMessages.email}">
 
 								<label class="control-label col-md-3" for="email">Email:</label>
 								<div class="col-md-9">
@@ -248,7 +297,15 @@
 											<span class="help-block">{{errorMessages.email[0]}}</span>
 										</div>
 								</div>
-							</div>
+							</div> -->
+							<ec-input 
+								label="email"
+						      	ng-model="facturacion.cuenta.perfil_facturacion.email"
+						      	name="email"
+						      	ng-maxlength="100"
+						      	type="email"
+								placeholder="ej: johndoe@dominio.com">
+						     </ec-input>
 							
 						</div>
 						<!--/span-->

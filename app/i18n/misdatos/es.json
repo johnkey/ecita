@@ -19,5 +19,15 @@
 	"contacto":"Contacto",
 	"editar":"Editar",
 	"guardar":"Guardar",
-	"cancelar": "Cancelar"
+	"cancelar": "Cancelar",
+	"numtarjeta": "Número Tarjeta",
+	"ccv":"CCV",
+	"iban":"IBAN",
+	"pago":"Pago",
+	"tipotarjeta":"Tipo de Tarjeta",
+	"banco":"Banco",
+	"bic":"BIC",
+	"caducidad":"Caducidad",
+	"periodicidad":"Periodicidad",
+	"datosfacturacion":"Datos de facturación"
 }
