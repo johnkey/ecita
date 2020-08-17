@@ -64,11 +64,11 @@ angular.module('myModule').config(['$controllerProvider', function($controllerPr
 **/
 
 //AngularJS v1.3.x workaround for old style controller declarition in HTML
-ecitaApp.config(['$controllerProvider', function($controllerProvider) {
+//ecitaApp.config(['$controllerProvider', function($controllerProvider) {
   // this option might be handy for migrating old apps, but please don't use it
   // in new ones!
-  $controllerProvider.allowGlobals();
-}]);
+  //$controllerProvider.allowGlobals();
+//}]);
 
 /********************************************
  END: BREAKING CHANGE in AngularJS v1.3.x:
