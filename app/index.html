@@ -15,37 +15,34 @@
 
 
   <!-- BEGIN GLOBAL MANDATORY STYLES -->
-  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
   <!-- END GLOBAL MANDATORY STYLES -->
 
   <!-- BEGIN DYMANICLY LOADED CSS FILES(all plugin and page related styles must be loaded between GLOBAL and THEME css files ) -->
   <link id="ng_load_plugins_before"/>
   <!-- END DYMANICLY LOADED CSS FILES -->
-
- 
-
-  
   
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-  <!-- build:css(.) styles/vendor.css -->
+  <!-- build:css(.) styles/css/vendor.css -->
   <!-- bower:css -->
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
   <link rel="stylesheet" href="bower_components/morris.js/morris.css" />
   <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
   <link rel="stylesheet" href="bower_components/simple-line-icons/dist/styles/simple-line-icons.css" />
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
   <!-- endbower -->
   <!-- endbuild -->
-  <!-- build:css(.tmp) styles/main.css -->
-  <link rel="stylesheet" href="bower_components/simple-line-icons/css/simple-line-icons.css" />
-  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+  <!-- build:css(.) styles/css/main.css -->
    <link href="app/styles/components-rounded.css" id="style_components" rel="stylesheet" type="text/css"/>
   <link href="app/styles/plugins.css" rel="stylesheet" type="text/css"/>
   <link href="app/styles/layout.css" rel="stylesheet" type="text/css"/>
   <link href="app/styles/light.css" rel="stylesheet" type="text/css" id="style_color"/>
-  <link rel="stylesheet" href="styles/main.css">
+  <link href="app/styles/tasks.css" rel="stylesheet" type="text/css"/>
+  <link href="app/styles/invoice.css" rel="stylesheet" type="text/css"/>
+  <link href="styles/index.css" rel="stylesheet" type="text/css">
   <!-- endbuild -->
 
-  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
   
   <link rel="shortcut icon" href="favicon.ico"/>
 </head>
@@ -113,11 +110,6 @@
   <script src="../../../assets/global/plugins/excanvas.min.js"></script> 
   <![endif]-->
  
- 
-
-  
-  
-
 
   <!-- build:js(.) scripts/vendor.js -->
   <!-- bower:js -->
@@ -141,6 +133,7 @@
   <script src="bower_components/raphael/raphael.js"></script>
   <script src="bower_components/mocha/mocha.js"></script>
   <script src="bower_components/morris.js/morris.js"></script>
+  <script src="bower_components/jquery.sparkline/dist/jquery.sparkline.min.js"></script>
   <script src="bower_components/firebase/firebase.js"></script>
   <script src="bower_components/angularfire/dist/angularfire.js"></script>
   <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
@@ -177,13 +170,39 @@
 
 <script src="scripts/directives/ecinput.js"></script>
 <script src="scripts/directives/formvalidate.js"></script>
+
+<script src="scripts/index3.js"></script>
+<script src="scripts/tasks.js"></script>
 <!-- endbuild -->
+
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-analytics.js"></script>
+
+
   <script type="text/javascript">
     /* Init Metronic's core jquery plugins and layout scripts */
     $(document).ready(function() {   
       Metronic.init(); // Run metronic theme
       Metronic.setAssetsPath('images/'); // Set the assets folder path     
     });
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyC04Fz-n_VcRYmASt6yql86zHOpbBGpRqw",
+      authDomain: "ecita-a59e1.firebaseapp.com",
+      databaseURL: "https://ecita-a59e1.firebaseio.com",
+      projectId: "ecita-a59e1",
+      storageBucket: "ecita-a59e1.appspot.com",
+      messagingSenderId: "129568088938",
+      appId: "1:129568088938:web:f58e014fd5d338758d3b13",
+      measurementId: "G-TS4450D2W0"
+    };
+     // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
   </script>
   <!-- END JAVASCRIPTS -->
 </body>

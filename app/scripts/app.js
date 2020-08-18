@@ -153,16 +153,6 @@ ecitaApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider
                         name: 'ecitaApp',
                         insertBefore: '#ng_load_plugins_before', // load the above css files before '#ng_load_plugins_before'
                         files: [
-                            'bower_components/morris.js/morris.css',
-                            'styles/tasks.css',
-                            
-                            'bower_components/morris.js/morris.min.js',
-                            'bower_components/raphael/raphael-min.js',
-                            'bower_components/jquery.sparkline/dist/jquery.sparkline.min.js',
-
-                            'scripts/index3.js',
-                            'scripts/tasks.js',
-
                              'scripts/controllers/dashboardcontroller.js'
                         ] 
                     });

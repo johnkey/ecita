@@ -42,6 +42,7 @@ module.exports = function(config) {
       'bower_components/raphael/raphael.js',
       'bower_components/mocha/mocha.js',
       'bower_components/morris.js/morris.js',
+      'bower_components/jquery.sparkline/dist/jquery.sparkline.min.js',
       'bower_components/firebase/firebase.js',
       'bower_components/angularfire/dist/angularfire.js',
       'bower_components/angular-toastr/dist/angular-toastr.tpls.js',
