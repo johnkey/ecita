@@ -8,7 +8,7 @@
  * Controller of the ecitaApp
  */
 angular.module('ecitaApp')
-  .controller('EmpresaDatosCtrl',['$scope','GLOBAL_CONFIG','BackendlessService','toastr', function ($scope,globalConfig,backendlessService,toastr) {
+  .controller('EmpresaDatosCtrl',['$scope','BackendlessService','toastr', function ($scope,backendlessService,toastr) {
    
       
       var id = {objectId:'B8A55C89-C734-4C25-90F9-397022450575',
