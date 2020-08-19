@@ -189,7 +189,7 @@ ecitaApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider
                         name: 'ecitaApp',
                         insertBefore: '#ng_load_plugins_before', // load the above css files before '#ng_load_plugins_before'
                         files: [
-                             'scripts/services/misdatos.js'
+                             'scripts/services/misdatos.js','scripts/services/firebaseservice.js'
                         ] 
                     });
                 }]

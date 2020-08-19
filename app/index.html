@@ -173,11 +173,13 @@
 
 <script src="scripts/index3.js"></script>
 <script src="scripts/tasks.js"></script>
+<script src="scripts/services/firebaseservice.js"></script>
 <!-- endbuild -->
 
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-firestore.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -202,7 +204,9 @@
       measurementId: "G-TS4450D2W0"
     };
      // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
   </script>
   <!-- END JAVASCRIPTS -->
 </body>
