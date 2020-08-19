@@ -8,23 +8,15 @@
  * Controller of the ecitaApp
  */
 angular.module('ecitaApp')
-  .controller('EmpresaDatosCtrl',['$scope','GLOBAL_CONFIG','FirebaseService','toastr', function ($scope,globalConfig,firebaseService,toastr) {
+  .controller('EmpresaDatosCtrl',['$scope','GLOBAL_CONFIG','BackendlessService','toastr', function ($scope,globalConfig,backendlessService,toastr) {
    
-      // var auth = $firebaseAuth();
-
-      // // login with Facebook
-      // auth.$signInWithPopup("google").then(function(firebaseUser) {
-      //   console.log("Signed in as:", firebaseUser.uid);
-      // }).catch(function(error) {
-      //   console.log("Authentication failed:", error);
-      // });
-
-   	  // 	var ref = new Firebase('https://ecita-a59e1.firebaseio.com/clientes');
-  		// $scope.detalle = $firebaseObject(ref);
-      //$scope.detalle={nombre:'a',apellidos:'b'};
-      firebaseService.get('clientes','twHOlovDgvwF8PdzJm48').then(function(doc) {
+      
+      var id = {objectId:'B8A55C89-C734-4C25-90F9-397022450575',
+                  loadRelations:'contacto' }
+      backendlessService.get('clientes',id).then(function(doc) {
             if (angular.isDefined(doc)){
                 $scope.detalle = doc;
+                $scope.$apply();
             }else{
                 toastr.error('No se han podido obtener los datos.','Error');
             }            
@@ -32,5 +24,7 @@ angular.module('ecitaApp')
           toastr.error('No se han podido obtener los datos.','Error');
           $scope.errorMessages=error.data;
       });
+
+      
   		//$scope.contactos = $firebaseArray(ref.child('contactos'));
   }]);
