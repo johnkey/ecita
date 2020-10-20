@@ -12,6 +12,8 @@
   <meta content="" name="description"/>
   <meta content="" name="author"/>
 
+  <meta name="google-signin-client_id" content="905138167786-sdn4elh4gfjchf69do3qhsto9bi145r3.apps.googleusercontent.com">
+
 
 
   <!-- BEGIN GLOBAL MANDATORY STYLES -->
@@ -39,6 +41,9 @@
   <link href="app/styles/light.css" rel="stylesheet" type="text/css" id="style_color"/>
   <link href="app/styles/tasks.css" rel="stylesheet" type="text/css"/>
   <link href="app/styles/invoice.css" rel="stylesheet" type="text/css"/>
+  <link href="app/styles/login.css" rel="stylesheet" type="text/css"/>
+  <!-- <link href="app/styles/default.css" rel="stylesheet" type="text/css"/>
+  <link href="app/styles/custom.css" rel="stylesheet" type="text/css"/> -->
   <link href="styles/index.css" rel="stylesheet" type="text/css">
   <!-- endbuild -->
 
@@ -96,7 +101,7 @@
     </div>
   </div>
   <!-- END CONTAINER -->
-  
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
   <!-- BEGIN FOOTER -->
   <div data-ng-include="'views/tpl/footer.html'" data-ng-controller="FooterController" class="page-footer">
   </div>
@@ -134,11 +139,11 @@
   <script src="bower_components/mocha/mocha.js"></script>
   <script src="bower_components/morris.js/morris.js"></script>
   <script src="bower_components/jquery.sparkline/dist/jquery.sparkline.min.js"></script>
-  <script src="bower_components/firebase/firebase.js"></script>
-  <script src="bower_components/angularfire/dist/angularfire.js"></script>
   <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
   <script src="bower_components/ngAutocomplete/src/ngAutocomplete.js"></script>
   <script src="bower_components/angular-translate/angular-translate.js"></script>
+  <script src="bower_components/jquery.uniform/lib/jquery.uniform.js"></script>
+  <script src="bower_components/jquery-validation/dist/jquery.validate.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -165,6 +170,8 @@
    <!-- BEGIN APP LEVEL JQUERY SCRIPTS -->
   <script src="scripts/metronic.js"></script>
   <script src="scripts/layout.js"></script>
+  <script src="scripts/jquery.cokie.min.js"></script>
+  <script src="scripts/login.js"></script>
   <!-- END APP LEVEL JQUERY SCRIPTS -->
 
 
@@ -173,21 +180,13 @@
 
 <script src="scripts/index3.js"></script>
 <script src="scripts/tasks.js"></script>
-<script src="scripts/services/firebaseservice.js"></script>
 <script src="scripts/services/backendlessservice.js"></script>
 <!-- endbuild -->
 
 
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-firestore.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-analytics.js"></script>
-
-<!-- TODO: Probar con backendless -->
+<!-- Probar con backendless -->
  <script src="//api.backendless.com/sdk/js/latest/backendless.js"></script>
+ <script src="https://apis.google.com/js/platform.js" async defer></script>
 
   <script type="text/javascript">
     /* Init Metronic's core jquery plugins and layout scripts */
@@ -196,26 +195,30 @@
       Metronic.setAssetsPath('images/'); // Set the assets folder path     
     });
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyC04Fz-n_VcRYmASt6yql86zHOpbBGpRqw",
-      authDomain: "ecita-a59e1.firebaseapp.com",
-      databaseURL: "https://ecita-a59e1.firebaseio.com",
-      projectId: "ecita-a59e1",
-      storageBucket: "ecita-a59e1.appspot.com",
-      messagingSenderId: "129568088938",
-      appId: "1:129568088938:web:f58e014fd5d338758d3b13",
-      measurementId: "G-TS4450D2W0"
-    };
-     // Initialize Firebase
-    if (!firebase.apps.length) {
-      firebase.initializeApp(firebaseConfig);
-    }
-
     //initialize backendless
     var APP_ID = '43F319A9-BBCC-4C77-FFEC-4C6B95ED2E00';
     var API_KEY = '82D7045F-80D3-4526-BF45-ED23799B37E0';
 
     Backendless.initApp(APP_ID, API_KEY);
+
+
+    function onSignIn(googleUser) {
+      var profile = googleUser.getBasicProfile();
+      console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+      console.log('Name: ' + profile.getName());
+      console.log('Image URL: ' + profile.getImageUrl());
+      console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+
+      loginWithGooglePlusSDK(googleUser.wc.access_token)
+
+
+    }
+    function loginWithGooglePlusSDK(accessToken) {
+      const fieldsMapping = { email: 'email' };
+
+      Backendless.UserService
+        .loginWithGooglePlusSdk(accessToken, fieldsMapping, true);
+    }
 
   </script>
   <!-- END JAVASCRIPTS -->

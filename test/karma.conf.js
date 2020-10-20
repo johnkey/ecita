@@ -43,11 +43,11 @@ module.exports = function(config) {
       'bower_components/mocha/mocha.js',
       'bower_components/morris.js/morris.js',
       'bower_components/jquery.sparkline/dist/jquery.sparkline.min.js',
-      'bower_components/firebase/firebase.js',
-      'bower_components/angularfire/dist/angularfire.js',
       'bower_components/angular-toastr/dist/angular-toastr.tpls.js',
       'bower_components/ngAutocomplete/src/ngAutocomplete.js',
       'bower_components/angular-translate/angular-translate.js',
+      'bower_components/jquery.uniform/lib/jquery.uniform.js',
+      'bower_components/jquery-validation/dist/jquery.validate.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

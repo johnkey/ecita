@@ -10,7 +10,6 @@ var ecitaApp = angular.module("ecitaApp", [
     "ngSanitize",
     "toastr",
     "ngAutocomplete",
-    "firebase",
     "ngResource",
     "ngCookies"
 ]); 
