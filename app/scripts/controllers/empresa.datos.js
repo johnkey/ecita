@@ -8,12 +8,10 @@
  * Controller of the ecitaApp
  */
 angular.module('ecitaApp')
-  .controller('EmpresaDatosCtrl',['$scope','BackendlessService','toastr', function ($scope,backendlessService,toastr) {
+  .controller('EmpresaDatosCtrl',['$scope','MisDatosSvc','toastr', function ($scope,misDatosSvc,toastr) {
    
       
-      var id = {objectId:'B8A55C89-C734-4C25-90F9-397022450575',
-                  loadRelations:'contacto' }
-      backendlessService.get('clientes',id).then(function(doc) {
+      misDatosSvc.get().then(function(doc) {
             if (angular.isDefined(doc)){
                 $scope.detalle = doc;
                 $scope.$apply();
@@ -26,5 +24,5 @@ angular.module('ecitaApp')
       });
 
       
-  		//$scope.contactos = $firebaseArray(ref.child('contactos'));
+  		
   }]);

@@ -8,12 +8,17 @@
  * Factory in the ecitaApp.
  */
 angular.module('ecitaApp')
-  .factory('MisDatosSvc', ['BackendlessService',function (backendlessService) {
+  .factory('MisDatosSvc', ['BackendlessService','UserSvc',function (backendlessService,userSvc) {
     
-  	var db = firebase.firestore().collection("clientes");
 
-  	this.get = function (table,id){
-      return backendlessService.get('clientes',id);
+  	this.get = async function (){
+  		
+  		var clientId = await userSvc.getCurrentClientId();
+
+  		var id = {objectId:clientId,
+                  loadRelations:'contacto' };
+        return backendlessService.get('clientes',id);
+  	  	  	
     }
 
 

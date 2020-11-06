@@ -15,5 +15,17 @@ angular.module('ecitaApp')
 	  		return Backendless.Data.of( collection ).findById( id );
 	  	};
 
+	  	this.query = function(collection,whereClause,relations){
+	  		
+	  		var storage = Backendless.Data.of( collection );
+	  		var queryBuilder = Backendless.DataQueryBuilder.create();
+	  		queryBuilder.setRelated(relations);
+			queryBuilder.setWhereClause(whereClause);
+			
+	  		return storage.find( queryBuilder );
+
+
+	  	};
+
 
 });

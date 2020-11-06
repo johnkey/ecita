@@ -8,12 +8,17 @@
  * Service in the ecitaApp.
  */
 angular.module('ecitaApp')
-  .factory('FacturacionSvc', ['$resource','GLOBAL_CONFIG',function ($resource,globalConfig) {
+  .factory('FacturacionSvc', ['BackendlessService','UserSvc',function (backendlessService,userSvc) {
     
 
-    var facturacion = $resource(globalConfig.host + globalConfig.api + '/facturacion/:id');
+    this.get = async function (){
+  		
+  		var clientId = await userSvc.getCurrentClientId();
 
-    
-    // Public API here
-    return facturacion;
+  		var where = "CLIENTES[datosFacturacion].objectId='" + clientId + "'";
+
+        return backendlessService.query('DATOS_FACTURACION',where,[ "medioPago"]);
+  	  	  	
+    }
+    return this;
   }]);

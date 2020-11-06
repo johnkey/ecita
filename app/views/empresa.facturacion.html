@@ -1,4 +1,4 @@
-<div class="portlet light" ng-controller="EmpresaFacturacionCtrl">
+<div class="portlet light">
 	<div class="portlet-title">
 		<div class="caption font-green-haze">
 			<i class="icon-credit-card font-green-haze"></i>
@@ -28,7 +28,7 @@
 								<label class="control-label col-md-3">Método de pago:</label>
 								<div class="col-md-9">
 									<p class="form-control-static">
-										{{facturacion.cuenta.perfil_facturacion.metodo_pago.nombre}}</p>
+										{{facturacion.medioPago.descripcion}}</p>
 									</div>
 								</div>
 							</div>
@@ -38,7 +38,7 @@
 									<label class="control-label col-md-3">Tipo de tarjeta:</label>
 									<div class="col-md-9">
 										<p class="form-control-static">
-											{{facturacion.cuenta.perfil_facturacion.tipo_tarjeta.nombre}}
+											{{facturacion.tipoTarjeta.nombre}}
 										</p>
 									</div>
 								</div>
@@ -51,17 +51,17 @@
 								<label class="control-label col-md-3">Banco:</label>
 								<div class="col-md-9">
 									<p class="form-control-static">
-										{{facturacion.cuenta.perfil_facturacion.nombre_banco}}</p>
+										{{facturacion.banco}}</p>
 									</div>
 								</div>
 							</div>
 							<!--/span-->
 							<div class="col-md-6">
 								<div class="form-group" >
-									<label class="control-label col-md-3">BIC:</label>
+									<label class="control-label col-md-3">BIC/SWIFT:</label>
 									<div class="col-md-9">
 										<p class="form-control-static">
-											{{facturacion.cuenta.perfil_facturacion.BIC}}
+											{{facturacion.bic}}
 										</p>
 									</div>
 								</div>
@@ -76,7 +76,7 @@
 								<label class="control-label col-md-3">Periodicidad:</label>
 								<div class="col-md-9">
 									<p class="form-control-static">
-										{{facturacion.tarifa.periodicidad.nombre}}
+										{{facturacion.periodicidad}}
 									</p>
 								</div>
 							</div>
@@ -90,7 +90,7 @@
 								<label class="control-label col-md-3">Número tarjeta:</label>
 								<div class="col-md-9">
 									<p class="form-control-static">
-										{{facturacion.cuenta.perfil_facturacion.numero_tarjeta}}
+										{{facturacion.numTarjeta}}
 									</p>
 								</div>
 							</div>
@@ -100,7 +100,7 @@
 								<label class="control-label col-md-3">Caducidad:</label>
 								<div class="col-md-9">
 									<p class="form-control-static">
-										{{facturacion.cuenta.perfil_facturacion.mes_caducidad}} / {{facturacion.cuenta.perfil_facturacion.anio_caducidad}}
+										{{facturacion.mesCaducidad}} / {{facturacion.anioCaducidad}}
 									</p>
 								</div>
 							</div>
@@ -113,7 +113,7 @@
 								<label class="control-label col-md-3">CCV:</label>
 								<div class="col-md-9">
 									<p class="form-control-static">
-										{{facturacion.cuenta.perfil_facturacion.ccv}}
+										{{facturacion.ccv}}
 									</p>
 								</div>
 							</div>
@@ -124,11 +124,11 @@
 					
 					<div class="row">
 						<div class="col-md-6">
-							<div class="form-group" ng-if="facturacion.cuenta.perfil_facturacion.metodo_pago.id==1">
+							<div class="form-group" ng-if="facturacion.medioPago.objectId=='72099CDA-E535-4331-A9BD-DAE3370C5B43'">
 								<label class="control-label col-md-3">IBAN:</label>
-								<div class="col-md-9">
+								<div class="col-md-9"> 
 									<p class="form-control-static">
-										{{facturacion.cuenta.perfil_facturacion.iban}}
+										{{facturacion.iban}}
 									</p>
 								</div>
 							</div>
@@ -144,7 +144,7 @@
 								<label class="control-label col-md-3">Nombre:</label>
 								<div class="col-md-9">
 									<p class="form-control-static">
-										{{facturacion.cuenta.perfil_facturacion.nombre}}</p>
+										{{facturacion.nombre}}</p>
 									</div>
 								</div>
 							</div>
@@ -154,7 +154,7 @@
 									<label class="control-label col-md-3">Apellidos:</label>
 									<div class="col-md-9">
 										<p class="form-control-static">
-											{{facturacion.cuenta.perfil_facturacion.apellidos}}
+											{{facturacion.apellidos}}
 										</p>
 									</div>
 								</div>
@@ -168,7 +168,7 @@
 									<label class="control-label col-md-3">Empresa:</label>
 									<div class="col-md-9">
 										<p class="form-control-static">
-											{{facturacion.cuenta.perfil_facturacion.empresa}}
+											{{facturacion.empresa}}
 										</p>
 									</div>
 								</div>
@@ -179,7 +179,7 @@
 									<label class="control-label col-md-3">CIF/NIF:</label>
 									<div class="col-md-9">
 										<p class="form-control-static">
-											{{facturacion.cuenta.perfil_facturacion.cif}}
+											{{facturacion.cifnif}}
 										</p>
 									</div>
 								</div>
@@ -193,7 +193,7 @@
 									<label class="control-label col-md-3">Email:</label>
 									<div class="col-md-9">
 										<p class="form-control-static">
-											{{facturacion.cuenta.perfil_facturacion.email}}
+											{{facturacion.email}}
 										</p>
 									</div>
 								</div>
@@ -204,7 +204,7 @@
 									<label class="control-label col-md-3">Teléfono:</label>
 									<div class="col-md-9">
 										<p class="form-control-static">
-											{{facturacion.cuenta.perfil_facturacion.telefono}}
+											{{facturacion.telefono}}
 										</p>
 									</div>
 								</div>
@@ -217,7 +217,7 @@
 									<label class="control-label col-md-3">VAT Number:</label>
 									<div class="col-md-9">
 										<p class="form-control-static">
-											{{facturacion.cuenta.perfil_facturacion.vat}}
+											{{facturacion.vat}}
 										</p>
 									</div>
 								</div>
@@ -232,7 +232,7 @@
 									<label class="control-label col-md-3">Dirección:</label>
 									<div class="col-md-9">
 										<p class="form-control-static">
-											{{facturacion.cuenta.perfil_facturacion.direccion}}
+											{{facturacion.direccion}}
 										</p>
 									</div>
 								</div>
@@ -244,7 +244,7 @@
 									<label class="control-label col-md-3">Ciudad:</label>
 									<div class="col-md-9">
 										<p class="form-control-static">
-											{{facturacion.cuenta.perfil_facturacion.localidad}}
+											{{facturacion.localidad}}
 										</p>
 									</div>
 								</div>
@@ -255,7 +255,7 @@
 									<label class="control-label col-md-3">Provincia/Estado:</label>
 									<div class="col-md-9">
 										<p class="form-control-static">
-											{{facturacion.cuenta.perfil_facturacion.provincia}}
+											{{facturacion.provincia}}
 										</p>
 									</div>
 								</div>
@@ -269,7 +269,7 @@
 									<label class="control-label col-md-3">Código Postal:</label>
 									<div class="col-md-9">
 										<p class="form-control-static">
-											{{facturacion.cuenta.perfil_facturacion.cp}}
+											{{facturacion.cp}}
 										</p>
 									</div>
 								</div>
@@ -280,7 +280,7 @@
 									<label class="control-label col-md-3">Pais:</label>
 									<div class="col-md-9">
 										<p class="form-control-static">
-											{{facturacion.cuenta.perfil_facturacion.pais}}
+											{{facturacion.pais}}
 										</p>
 									</div>
 								</div>
