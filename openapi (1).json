@@ -1,0 +1,253 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Notificacion Solicitud gestor DNI (REST).",
+    "description": "Servicio Web para notificar la tramitacion o finalizacion de una solicitud por parte del Gestor DNI.",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://{host}/{context}"
+    },
+    {
+      "url": "https://{host}/{context}"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Notificar",
+      "description": "Operacion encargada de realizar la notificación de la tramitacion finalizacion de una solicitud."
+    }
+  ],
+  "paths": {
+    "/api/1.0/notificacionDNI/{idSolicitud}": {
+      "post": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "idSolicitud",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "identificador del registro de la solicitud"
+          }
+        ],
+        "tags": [
+          "Notificar"
+        ],
+        "summary": "Verificar los datos recibidos y gestionar la notificacion enviada por el gestor DNI.",
+        "operationId": "notificar",
+        "requestBody": {
+          "description": "Request de entrada en formato JSON.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NotificacionDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "La notificacion se ha realizado correctamente o se ha producido un error reintentable. Si ha terminado correctamente, se debe informar 0 en el campo codRetorno, si ha dado un error y se debe reintentar la notificacion, se debe informar -1 en el campo codRetorno.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificacionResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "La operación no se ha podido procesar por un error no posible de solventar. Se informara en el campo codRetorno cualquier valor diferente de 0 y -1.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificacionResponse"
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name": "entrada"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "NotificacionDTO": {
+        "type": "object",
+        "properties": {
+          "idSolicitud": {
+            "type": "string",
+            "description": "Identificador único de la solicitud realizada en el sistema Gestor Documentación identificativa."
+          },
+          "proceso": {
+            "type": "string",
+            "description": "Identifica el flujo predefinido de conectores que hay que utilizar para procesar la documentación de cliente"
+          },
+          "solicitante": {
+            "type": "string",
+            "description": "Identifica al solicitante"
+          },
+          "referencia": {
+            "type": "string",
+            "description": "Referencia del solicitante para su utilización en todas las comunicaciones"
+          },
+          "fechaSolicitud": {
+            "type": "string",
+            "description": "Fecha inicio de solicitud"
+          },
+          "estado": {
+            "type": "string",
+            "description": "Código de estado de la solicitud"
+          },
+          "etapa": {
+            "type": "string",
+            "description": "Código de la última etapa ejecutada. En caso de error, etapa cuya ejecución no ha terminado de forma satisfactoria."
+          },
+          "estadoEtapa": {
+            "type": "string",
+            "description": "Código de estado de la etapa."
+          },
+          "tipoError": {
+            "type": "string",
+            "description": "Tipo de error producido"
+          },
+          "codError": {
+            "type": "string",
+            "description": "Identificador numérico del error producido"
+          },
+          "descError": {
+            "type": "string",
+            "description": "Descripción del error producido"
+          },
+          "datos": {
+            "type": "string",
+            "description": "Datos en formato libre propios del solicitante. Estos datos pueden servir para que el aplicativo solicitante pueda filtrar las solicitudes utilizando sus propios parámetros. Son datos que se incluyen en la notificación."
+          },
+          "metadatos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Atributo"
+            },
+            "description": "Conjunto de datos, en formato clave valor,  obtenidos en la etapa de reconocimiento de la documentación identificativa de cliente. La claves pueden pueden ser entre otras\\:<br> <p> &nbsp; dni/nie - Número de identificador obtenido en la etapa de reconocimiento. Si el proceso no incluye la etapa de reconocimiento, dato informado en la solicitud. Si no se ha obtenido el dato en ninguna etapa, se informa en blanco.<br> <p> &nbsp; tipoDocumento - Tipo de documento (DNI/TIE).<br> <p> &nbsp; tipoPermiso - Tipo de permiso que identificado en el documento (residencia, trabajo, …).<br> <p> &nbsp; lugarExpedicion - Lugar de expedición del documento físico.<br> <p> &nbsp; nacionalidad - Nacionalidad del titular del documento.<br> <p> &nbsp; fechaInicio - Inicio del periodo de validez de documento.<br> <p> &nbsp; provNacimiento - Provincia de nacimiento del titular del documento.<br> <p> &nbsp; numSoporte - Número de serie del documento físico.<br> <p> &nbsp; domicilio - Domicilio del titular del documento.<br> <p> &nbsp; lugarNacimiento - Localidad de nacimiento del titular del documento.<br> <p> &nbsp; nombre - Nombre obtenido en la etapa de reconocimiento. Si el proceso no incluye la etapa de reconocimiento, dato informado en la solicitud. Si no se ha obtenido el dato en ninguna etapa, se informa en blanco. <br> <p> &nbsp; sexo - Sexo del titular del documento.<br> <p> &nbsp; padres - Nombre de los padres del titular del documento.<br> <p> &nbsp; fechaExpedicion - Fecha de expedición del documento físico.<br> <p> &nbsp; equipoExpedicion - Identificador del equipo expedidor del documento físico.<br> <p> &nbsp; apellido1 - Primer Apellido obtenido en la etapa de reconocimiento. Si el proceso no incluye la etapa de reconocimiento, dato informado en la solicitud. Si no se ha obtenido el dato en ninguna etapa, no se informa.<br> <p> &nbsp; apellido2 - Segundo apellido en la etapa de reconocimiento. Si el proceso no incluye la etapa de reconocimiento, dato informado en la solicitud. Si no se ha obtenido el dato en ninguna etapa, se informa en blanco. <p> &nbsp; fechaCaducidad - Fecha de caducidad obtenido en la etapa de reconocimiento. Si el proceso no incluye la etapa de reconocimiento, dato informado en la solicitud. Si no se ha obtenido el dato en ninguna etapa, se informa en blanco.<br> <p> &nbsp; fechaNacimiento - Fecha de nacimiento obtenido en la etapa de reconocimiento. Si el proceso no incluye la etapa de reconocimiento, dato informado en la solicitud. Si no se ha obtenido el dato en ninguna etapa, se informa en blanco.<br> <p> &nbsp; lugarDomicilio - Localidad del domicilio del titular del documento.<br> <p> &nbsp; provDomicilio - Provincia del domicilio del titular del documento.<br>",
+            "example": [
+              {
+                "clave": "dni/nie",
+                "valor": "string"
+              },
+              {
+                "clave": "tipoDocumento",
+                "valor": "string"
+              },
+              {
+                "clave": "tipoPermiso",
+                "valor": "string"
+              },
+              {
+                "clave": "lugarExpedicion",
+                "valor": "string"
+              },
+              {
+                "clave": "nacionalidad",
+                "valor": "string"
+              },
+              {
+                "clave": "fechaInicio",
+                "valor": "string"
+              },
+              {
+                "clave": "provNacimiento",
+                "valor": "string"
+              },
+              {
+                "clave": "numSoporte",
+                "valor": "string"
+              },
+              {
+                "clave": "domicilio",
+                "valor": "string"
+              },
+              {
+                "clave": "lugarNacimiento",
+                "valor": "string"
+              },
+              {
+                "clave": "nombre",
+                "valor": "string"
+              },
+              {
+                "clave": "sexo",
+                "valor": "string"
+              },
+              {
+                "clave": "padres",
+                "valor": "string"
+              },
+              {
+                "clave": "fechaExpedicion",
+                "valor": "string"
+              },
+              {
+                "clave": "equipoExpedicion",
+                "valor": "string"
+              },
+              {
+                "clave": "apellido1",
+                "valor": "string"
+              },
+              {
+                "clave": "apellido2",
+                "valor": "string"
+              },
+              {
+                "clave": "fechaCaducidad",
+                "valor": "dd/mm/yyyy hh:mi:ss"
+              },
+              {
+                "clave": "fechaNacimiento",
+                "valor": "dd/mm/yyyy hh:mi:ss"
+              },
+              {
+                "clave": "lugarDomicilio",
+                "valor": "string"
+              },
+              {
+                "clave": "provDomicilio",
+                "valor": "string"
+              }
+            ]
+          }
+        }
+      },
+      "NotificacionResponse": {
+        "type": "object",
+        "properties": {
+          "codRetorno": {
+            "type": "string",
+            "description": "Codigo de respuesta devuelto por el servicio"
+          },
+          "descRetorno": {
+            "type": "string",
+            "description": "Descripcion del codigo devuelto por el servicio"
+          }
+        }
+      },
+      "Atributo": {
+        "type": "object",
+        "description": "define un elemento con estructura clave/valor",
+        "properties": {
+          "clave": {
+            "type": "string"
+          },
+          "valor": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
